@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:timelines/timelines.dart';
 
 const kPrimaryColor = Color(0xFF24a896);
 const kBgWhite = Color(0xFFffffff);
@@ -9,6 +10,11 @@ const kInactiveColor = Color(0xFFa6a6a6);
 const kInactiveColor2 = Color(0xFFeaecf0);
 const kRed = Color(0xFFd92d20);
 const kOrange = Color(0xFFdc6803);
+
+const kDefaultDuration = Duration(milliseconds: 500);
+const kDefaultFastDuration = Duration(milliseconds: 200);
+
+const kDefaultScaffoldPadding = EdgeInsets.symmetric(horizontal: 15);
 
 TextStyle get kDefaultTextStyle {
   return const TextStyle(
@@ -23,3 +29,63 @@ const kDefaultBorderRadius10 = BorderRadius.all(
 );
 
 const kDivider = Divider(color: kInactiveColor2);
+
+const kIconTheme = IconThemeData(
+  color: kPrimaryColor,
+);
+
+const kAppbarTheme = AppBarTheme(
+  iconTheme: kIconTheme,
+);
+
+const kFloatingActionButton = FloatingActionButtonThemeData(
+  backgroundColor: kPrimaryColor,
+);
+
+const kInputDecorationTheme = InputDecorationTheme(
+  hoverColor: kPrimaryColor,
+  focusColor: kPrimaryColor,
+  border: OutlineInputBorder(
+    borderRadius: kDefaultBorderRadius10,
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: kDefaultBorderRadius10,
+    borderSide: BorderSide(
+      color: kPrimaryColor,
+    ),
+  ),
+);
+
+DecoratedLineConnector timelineConnector({Color color = kPrimaryColor}) {
+  return DecoratedLineConnector(
+    thickness: 4,
+    decoration: BoxDecoration(
+      color: color,
+    ),
+  );
+}
+
+// const kStartConnector = DecoratedLineConnector(
+//   thickness: 4,
+//   decoration: BoxDecoration(
+//     color: kPrimaryColor,
+//   ),
+// );
+// const kStartConnectorInactive = DecoratedLineConnector(
+//   thickness: 4,
+//   decoration: BoxDecoration(
+//     color: kInactiveColor,
+//   ),
+// );
+
+// const kEndConnector = DecoratedLineConnector(
+//   thickness: 4,
+//   decoration: BoxDecoration(
+//     color: kPrimaryColor,
+//   ),
+// );const kEndConnectorInactive = DecoratedLineConnector(
+//   thickness: 4,
+//   decoration: BoxDecoration(
+//     color: kInactiveColor,
+//   ),
+// );

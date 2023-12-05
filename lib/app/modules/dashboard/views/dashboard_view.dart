@@ -17,8 +17,11 @@ class DashboardView extends GetView<DashboardController> {
         title: const Text('DashboardView'),
         centerTitle: true,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: kDefaultScaffoldPadding,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,6 +32,9 @@ class DashboardView extends GetView<DashboardController> {
               DefText('Your leads summary and activity.', color: kInactiveColor).normal,
               const SizedBox(height: 10),
               DefaultButton(
+                onTap: () {
+                  controller.createVehicle();
+                },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
