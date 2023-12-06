@@ -7,7 +7,7 @@ import '../modules/detail_financing/views/detail_financing_view.dart';
 import '../modules/financing/bindings/financing_binding.dart';
 import '../modules/financing/views/financing_view.dart';
 import '../modules/financing_form/bindings/financing_form_bindings.dart';
-import '../modules/financing_form/views/financingFormView.dart';
+import '../modules/financing_form/views/financing_form_view.dart';
 import '../modules/form_created/bindings/form_created_binding.dart';
 import '../modules/form_created/views/form_created_view.dart';
 import '../modules/home/bindings/home_binding.dart';
