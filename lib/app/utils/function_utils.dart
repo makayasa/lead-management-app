@@ -1,6 +1,8 @@
 import 'dart:developer' as dev;
 import 'dart:convert';
 
+import 'package:get/get.dart';
+
 void logKey([key, content]) {
   String finalLog = '';
   dynamic tempContent = content ?? key;
@@ -43,4 +45,52 @@ String formatNumber(int number) {
   }
 
   return result;
+}
+
+bool isEmpty(dynamic val) {
+  return [
+    "",
+    " ",
+    null,
+    'null',
+    '{}',
+    '[]',
+    '0',
+    '0.0',
+    '-1',
+  ].contains(val.toString());
+}
+
+bool isNotEmpty(dynamic val) {
+  return ![
+    "",
+    " ",
+    null,
+    'null',
+    '{}',
+    '[]',
+    '0',
+    '0.0',
+    '0.00',
+    '-1',
+  ].contains(val.toString());
+}
+
+List<Map<String, dynamic>> deepCopyList(List<dynamic> source) {
+  List<Map<String, dynamic>> copy = [];
+  for (var item in source) {
+    copy.add(Map.from(item)); // Salin elemen-elemen satu per satu
+  }
+  return copy;
+}
+
+Map<String, dynamic> deepCopyMap(dynamic source) {
+  Map<String, dynamic> copy = {};
+  // String a = json.encode(source);
+  // Map<String, dynamic> b = json.decode(a);
+  // copy.assignAll(b);
+  // source.forEach((key, value) {
+  //   copy[key] = value;
+  // });
+  return copy;
 }

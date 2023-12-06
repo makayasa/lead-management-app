@@ -4,9 +4,11 @@ import 'package:get/get.dart';
 import 'package:lead_management_app/app/components/default_button.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
+import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/modules/dashboard/components/dashboard_item.dart';
 import 'package:lead_management_app/app/routes/app_pages.dart';
 
+import '../../../utils/function_utils.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {
@@ -36,7 +38,14 @@ class DashboardView extends GetView<DashboardController> {
         // centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () async {
+          final hiveC = Get.find<HiveController>();
+          // final res = await hiveC.getDistrictByProvId(2);
+          // logKey('res', res);
+          // hiveC.hiveBox.clear();
+          // await hiveC.inserDummy();
+          // await hiveC.getDataDummies();
+        },
       ),
       body: Padding(
         padding: kDefaultScaffoldPadding,
@@ -57,14 +66,13 @@ class DashboardView extends GetView<DashboardController> {
                 tabs: [
                   Tab(
                     child: Container(
-                      
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Center(child: DefText('Financing', color: kPrimaryColor).normal),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height:20),
+              const SizedBox(height: 20),
               DefText('Open').semilarge,
               DefText('Leads in process', color: kInactiveColor).semiSmall,
               const SizedBox(height: 10),
@@ -87,6 +95,7 @@ class DashboardView extends GetView<DashboardController> {
                   ],
                 ),
               ),
+              const SizedBox(height: 10),
               kDivider,
               //* item hijau
               Column(

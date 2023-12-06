@@ -1,0 +1,52 @@
+[
+    {
+        "seller_name": "Toko A",
+        "phone_number": "08123456789",
+        "address": {
+            "province": "DKI Jakarta",
+            "district": "Jakarta Barat",
+            "sub_district": "Kebon Jeruk",
+            "full_address": "Jl. Raya Kebon Jeruk No. 123"
+        }
+    },
+    {
+        "seller_name": "Toko B",
+        "phone_number": "08567890123",
+        "address": {
+            "province": "Banten",
+            "district": "Tangerang",
+            "sub_district": "Ciledug",
+            "full_address": "Jl. Ciledug Raya No. 45"
+        }
+    },
+    {
+        "seller_name": "Toko C",
+        "phone_number": "08765432100",
+        "address": {
+            "province": "Jawa Barat",
+            "district": "Bekasi",
+            "sub_district": "Bekasi Selatan",
+            "full_address": "Jl. Ahmad Yani No. 78"
+        }
+    },
+    {
+        "seller_name": "Toko D",
+        "phone_number": "08111222333",
+        "address": {
+            "province": "DKI Jakarta",
+            "district": "Jakarta Timur",
+            "sub_district": "Cakung",
+            "full_address": "Jl. Cakung Cilincing No. 56"
+        }
+    },
+    {
+        "seller_name": "Toko E",
+        "phone_number": "08987654321",
+        "address": {
+            "province": "Jawa Barat",
+            "district": "Depok",
+            "sub_district": "Sawangan",
+            "full_address": "Jl. Sawangan Indah No. 34"
+        }
+    }
+]
