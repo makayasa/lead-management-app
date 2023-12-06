@@ -15,8 +15,25 @@ class DashboardView extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('DashboardView'),
-        centerTitle: true,
+        leadingWidth: 0,
+        titleSpacing: 0,
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(0),
+          child: kDivider,
+        ),
+        title: SizedBox(
+          height: 70,
+          child: Image.asset(
+            'assets/yoda-central.png',
+          ),
+        ),
+        actions: const [
+          Icon(
+            Icons.menu,
+          ),
+          SizedBox(width: 10),
+        ],
+        // centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -28,9 +45,28 @@ class DashboardView extends GetView<DashboardController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
+              const SizedBox(height: 15),
               DefText('Welcome back, Muammar').large,
               const SizedBox(height: 2),
               DefText('Your leads summary and activity.', color: kInactiveColor).normal,
+              const SizedBox(height: 10),
+              TabBar(
+                controller: controller.tabController,
+                tabAlignment: TabAlignment.start,
+                isScrollable: true,
+                tabs: [
+                  Tab(
+                    child: Container(
+                      
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Center(child: DefText('Financing', color: kPrimaryColor).normal),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height:20),
+              DefText('Open').semilarge,
+              DefText('Leads in process', color: kInactiveColor).semiSmall,
               const SizedBox(height: 10),
               DefaultButton(
                 onTap: () {

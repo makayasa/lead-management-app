@@ -20,6 +20,7 @@ void main() {
         inputDecorationTheme: kInputDecorationTheme,
         textSelectionTheme: kTextSelectionTheme,
         scaffoldBackgroundColor: kBgWhite,
+        tabBarTheme: kTabbarTheme,
       ),
     ),
   );

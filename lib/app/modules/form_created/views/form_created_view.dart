@@ -14,8 +14,13 @@ class FormCreatedView extends GetView<FormCreatedController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Container(),
-        // title: const Text('FormCreatedView'),
+        // leading: Container(),
+        // title: Container(
+        //   height: 100,
+        //   child: Image.asset(
+        //     'assets/yoda-central.png',
+        //   ),
+        // ),
         // centerTitle: true,
       ),
       body: Padding(
@@ -61,6 +66,12 @@ class FormCreatedView extends GetView<FormCreatedController> {
             ),
             const SizedBox(height: 20),
             DefaultButton(
+              onTap: () async {
+                Get.offNamedUntil(Routes.DASHBOARD, (route) => false);
+                // Get.toNamed(page)
+                Get.toNamed(Routes.FINANCING);
+                Get.toNamed(Routes.DETAIL_FINANCING);
+              },
               child: Center(
                 child: DefText('Check card', color: kBgWhite).semilarge,
               ),

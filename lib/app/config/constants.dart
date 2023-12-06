@@ -65,6 +65,11 @@ const kInputDecorationTheme = InputDecorationTheme(
   ),
 );
 
+const kTabbarTheme = TabBarTheme(
+  labelColor: kPrimaryColor,
+  indicatorColor: kPrimaryColor,
+);
+
 DecoratedLineConnector timelineConnector({Color color = kPrimaryColor}) {
   return DecoratedLineConnector(
     thickness: 4,
