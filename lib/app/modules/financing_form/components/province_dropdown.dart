@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:lead_management_app/app/data/models/address/subdistrict.dart';
-import 'package:lead_management_app/app/modules/vehicle_spec_form/controllers/vehicle_spec_form_controller.dart';
+import 'package:lead_management_app/app/data/models/address/province.dart';
+import 'package:lead_management_app/app/modules/financing_form/controllers/financing_form_controller.dart';
 
 import '../../../components/default_text.dart';
 
-class SubdistrictDropdown extends GetView<VehicleSpecFormController> {
-  const SubdistrictDropdown({
+class ProvinceDropdown extends GetView<FinancingFormController> {
+  const ProvinceDropdown({
     super.key,
   });
 
@@ -16,12 +16,16 @@ class SubdistrictDropdown extends GetView<VehicleSpecFormController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DefText('Sub-district*').normal,
+        DefText('Province*').normal,
         Obx(
-          () => FormBuilderDropdown<Subdistrict>(
+          () => FormBuilderDropdown<Province>(
             decoration: const InputDecoration(contentPadding: EdgeInsets.only(left: 10, right: 10)),
-            name: 'sub_district',
-            items: controller.subdistrcts
+            name: 'province',
+            onChanged: (value) {
+              controller.cleardistrict();
+              controller.getDistrict(value!.id);
+            },
+            items: controller.provinces
                 .map(
                   (element) => DropdownMenuItem(
                     value: element,

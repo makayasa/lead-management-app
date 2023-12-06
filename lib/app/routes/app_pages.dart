@@ -6,6 +6,8 @@ import '../modules/detail_financing/bindings/detail_financing_binding.dart';
 import '../modules/detail_financing/views/detail_financing_view.dart';
 import '../modules/financing/bindings/financing_binding.dart';
 import '../modules/financing/views/financing_view.dart';
+import '../modules/financing_form/bindings/financing_form_bindings.dart';
+import '../modules/financing_form/views/financingFormView.dart';
 import '../modules/form_created/bindings/form_created_binding.dart';
 import '../modules/form_created/views/form_created_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -14,8 +16,6 @@ import '../modules/vehicle_registration/bindings/vehicle_registration_binding.da
 import '../modules/vehicle_registration/views/vehicle_registration_view.dart';
 import '../modules/vehicle_spec/bindings/vehicle_spec_binding.dart';
 import '../modules/vehicle_spec/views/vehicle_spec_view.dart';
-import '../modules/vehicle_spec_form/bindings/vehicle_spec_form_binding.dart';
-import '../modules/vehicle_spec_form/views/vehicle_spec_form_view.dart';
 
 part 'app_routes.dart';
 
@@ -51,8 +51,8 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.VEHICLE_SPEC_FORM,
-      page: () => const VehicleSpecFormView(),
-      binding: VehicleSpecFormBinding(),
+      page: () => const FinancingFormView(),
+      binding: FinancingFormBindings(),
       // // transition: Transition.rightToLeft,
     ),
     GetPage(

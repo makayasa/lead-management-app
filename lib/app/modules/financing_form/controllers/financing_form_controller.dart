@@ -8,7 +8,7 @@ import 'package:lead_management_app/app/data/models/address/subdistrict.dart';
 import 'package:lead_management_app/app/data/models/seller/seller.dart';
 import 'package:lead_management_app/app/utils/function_utils.dart';
 
-class VehicleSpecFormController extends GetxController {
+class FinancingFormController extends GetxController {
   final formKey = GlobalKey<FormBuilderState>();
   final testKey = GlobalKey<FormBuilderFieldState>();
   final hiveC = Get.find<HiveController>();

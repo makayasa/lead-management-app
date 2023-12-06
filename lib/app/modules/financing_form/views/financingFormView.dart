@@ -7,7 +7,7 @@ import 'package:lead_management_app/app/components/default_button.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
 import 'package:lead_management_app/app/data/models/seller/seller.dart';
-import 'package:lead_management_app/app/modules/vehicle_spec_form/components/brand_dropdown.dart';
+import 'package:lead_management_app/app/modules/financing_form/components/brand_dropdown.dart';
 import 'package:lead_management_app/app/routes/app_pages.dart';
 import 'package:timelines/timelines.dart';
 
@@ -25,10 +25,10 @@ import '../components/province_dropdown.dart';
 import '../components/subdistrict_dropdown.dart';
 import '../components/transmission_dropdown.dart';
 import '../components/variant_dropdown.dart';
-import '../controllers/vehicle_spec_form_controller.dart';
+import '../controllers/financing_form_controller.dart';
 
-class VehicleSpecFormView extends GetView<VehicleSpecFormController> {
-  const VehicleSpecFormView({Key? key}) : super(key: key);
+class FinancingFormView extends GetView<FinancingFormController> {
+  const FinancingFormView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

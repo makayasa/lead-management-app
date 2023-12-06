@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:lead_management_app/app/data/models/address/district.dart';
-import 'package:lead_management_app/app/modules/vehicle_spec_form/controllers/vehicle_spec_form_controller.dart';
+import 'package:lead_management_app/app/modules/financing_form/controllers/financing_form_controller.dart';
 
 import '../../../components/default_text.dart';
 
-class DistrictDropdown extends GetView<VehicleSpecFormController> {
+class DistrictDropdown extends GetView<FinancingFormController> {
   const DistrictDropdown({
     super.key,
   });
