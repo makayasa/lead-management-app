@@ -19,7 +19,7 @@ abstract class _Paths {
   static const DASHBOARD = '/dashboard';
   static const VEHICLE_REGISTRATION = '/vehicle-registration';
   static const VEHICLE_SPEC = '/vehicle-spec';
-  static const VEHICLE_SPEC_FORM = '/vehicle-spec-form';
+  static const VEHICLE_SPEC_FORM = '/financing-form';
   static const FORM_CREATED = '/form-created';
   static const FINANCING = '/financing';
   static const DETAIL_FINANCING = '/detail-financing';
