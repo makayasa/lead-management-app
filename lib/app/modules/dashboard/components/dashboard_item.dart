@@ -21,28 +21,31 @@ class DashboardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Row(
-        children: [
-          Container(
-            height: 50,
-            width: 50,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: kPrimaryColor,
+      child: Container(
+        color: kBgWhite.withOpacity(0),
+        child: Row(
+          children: [
+            Container(
+              height: 50,
+              width: 50,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: kPrimaryColor,
+              ),
             ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DefText(title).semilarge,
-                DefText(desc, color: kInactiveColor).normal,
-              ],
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DefText(title).semilarge,
+                  DefText(desc, color: kInactiveColor).normal,
+                ],
+              ),
             ),
-          ),
-          DefText(formatNumber(number)).normal,
-        ],
+            DefText(formatNumber(number)).normal,
+          ],
+        ),
       ),
     );
   }

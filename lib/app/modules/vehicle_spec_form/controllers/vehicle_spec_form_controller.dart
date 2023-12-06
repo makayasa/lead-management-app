@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class VehicleSpecFormController extends GetxController {
   final formKey = GlobalKey<FormBuilderState>();
+  final testKey = GlobalKey<FormBuilderFieldState>();
 
   final count = 0.obs;
   @override

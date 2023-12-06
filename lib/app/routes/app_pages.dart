@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/detail_financing/bindings/detail_financing_binding.dart';
+import '../modules/detail_financing/views/detail_financing_view.dart';
 import '../modules/financing/bindings/financing_binding.dart';
 import '../modules/financing/views/financing_view.dart';
 import '../modules/form_created/bindings/form_created_binding.dart';
@@ -63,6 +65,11 @@ class AppPages {
       name: _Paths.FINANCING,
       page: () => const FinancingView(),
       binding: FinancingBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_FINANCING,
+      page: () => const DetailFinancingView(),
+      binding: DetailFinancingBinding(),
     ),
   ];
 }

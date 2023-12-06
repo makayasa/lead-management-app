@@ -10,6 +10,7 @@ abstract class Routes {
   static const VEHICLE_SPEC_FORM = _Paths.VEHICLE_SPEC_FORM;
   static const FORM_CREATED = _Paths.FORM_CREATED;
   static const FINANCING = _Paths.FINANCING;
+  static const DETAIL_FINANCING = _Paths.DETAIL_FINANCING;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const VEHICLE_SPEC_FORM = '/vehicle-spec-form';
   static const FORM_CREATED = '/form-created';
   static const FINANCING = '/financing';
+  static const DETAIL_FINANCING = '/detail-financing';
 }

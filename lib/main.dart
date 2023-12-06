@@ -19,6 +19,7 @@ void main() {
         floatingActionButtonTheme: kFloatingActionButton,
         inputDecorationTheme: kInputDecorationTheme,
         textSelectionTheme: kTextSelectionTheme,
+        scaffoldBackgroundColor: kBgWhite,
       ),
     ),
   );
