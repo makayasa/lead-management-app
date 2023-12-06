@@ -5,6 +5,7 @@ import 'package:lead_management_app/app/components/default_button.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
 import 'package:lead_management_app/app/modules/dashboard/components/dashboard_item.dart';
+import 'package:lead_management_app/app/routes/app_pages.dart';
 
 import '../controllers/dashboard_controller.dart';
 
@@ -52,40 +53,45 @@ class DashboardView extends GetView<DashboardController> {
               ),
               kDivider,
               //* item hijau
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   DashboardItem(
                     title: 'Listing',
                     desc: 'Customer service',
                     number: 2420,
+                    onTap: () {
+                      Get.toNamed(
+                        Routes.FINANCING,
+                      );
+                    },
                   ),
                   kDivider,
-                  DashboardItem(
+                  const DashboardItem(
                     title: 'Inspecting',
                     desc: 'Marketing officer',
                     number: 1210,
                   ),
                   kDivider,
-                  DashboardItem(
+                  const DashboardItem(
                     title: 'Visited',
                     desc: 'Marketing officer',
                     number: 20,
                   ),
                   kDivider,
-                  DashboardItem(
+                  const DashboardItem(
                     title: 'Assigning surveyor',
                     desc: 'Marketing officer',
                     number: 2420,
                   ),
                   kDivider,
-                  DashboardItem(
+                  const DashboardItem(
                     title: 'Surveying',
                     desc: 'Credit officer',
                     number: 1210,
                   ),
                   kDivider,
-                  DashboardItem(
+                  const DashboardItem(
                     title: 'Approval',
                     desc: 'Marketing officer',
                     number: 20,

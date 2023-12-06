@@ -10,6 +10,7 @@ const kInactiveColor = Color(0xFFa6a6a6);
 const kInactiveColor2 = Color(0xFFeaecf0);
 const kRed = Color(0xFFd92d20);
 const kOrange = Color(0xFFdc6803);
+const kGreen = Color(0xFF1b7e71);
 
 const kDefaultDuration = Duration(milliseconds: 500);
 const kDefaultFastDuration = Duration(milliseconds: 200);
@@ -26,6 +27,9 @@ TextStyle get kDefaultTextStyle {
 
 const kDefaultBorderRadius10 = BorderRadius.all(
   Radius.circular(10),
+);
+const kDefaultBorderRadius = BorderRadius.all(
+  Radius.circular(5),
 );
 
 const kDivider = Divider(color: kInactiveColor2);

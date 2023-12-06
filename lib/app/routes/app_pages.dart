@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/financing/bindings/financing_binding.dart';
+import '../modules/financing/views/financing_view.dart';
 import '../modules/form_created/bindings/form_created_binding.dart';
 import '../modules/form_created/views/form_created_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -56,6 +58,11 @@ class AppPages {
       page: () => const FormCreatedView(),
       binding: FormCreatedBinding(),
       // transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: _Paths.FINANCING,
+      page: () => const FinancingView(),
+      binding: FinancingBinding(),
     ),
   ];
 }
