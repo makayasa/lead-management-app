@@ -6,6 +6,9 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const DASHBOARD = _Paths.DASHBOARD;
   static const VEHICLE_REGISTRATION = _Paths.VEHICLE_REGISTRATION;
+  static const VEHICLE_SPEC = _Paths.VEHICLE_SPEC;
+  static const VEHICLE_SPEC_FORM = _Paths.VEHICLE_SPEC_FORM;
+  static const FORM_CREATED = _Paths.FORM_CREATED;
 }
 
 abstract class _Paths {
@@ -13,4 +16,7 @@ abstract class _Paths {
   static const HOME = '/home';
   static const DASHBOARD = '/dashboard';
   static const VEHICLE_REGISTRATION = '/vehicle-registration';
+  static const VEHICLE_SPEC = '/vehicle-spec';
+  static const VEHICLE_SPEC_FORM = '/vehicle-spec-form';
+  static const FORM_CREATED = '/form-created';
 }

@@ -13,8 +13,8 @@ class ContainerDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 35,
-      width: 35,
+      height: 30,
+      width: 30,
       decoration: BoxDecoration(
         color: color.withAlpha(50),
         shape: BoxShape.circle,

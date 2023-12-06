@@ -2,10 +2,16 @@ import 'package:get/get.dart';
 
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/form_created/bindings/form_created_binding.dart';
+import '../modules/form_created/views/form_created_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/vehicle_registration/bindings/vehicle_registration_binding.dart';
 import '../modules/vehicle_registration/views/vehicle_registration_view.dart';
+import '../modules/vehicle_spec/bindings/vehicle_spec_binding.dart';
+import '../modules/vehicle_spec/views/vehicle_spec_view.dart';
+import '../modules/vehicle_spec_form/bindings/vehicle_spec_form_binding.dart';
+import '../modules/vehicle_spec_form/views/vehicle_spec_form_view.dart';
 
 part 'app_routes.dart';
 
@@ -19,16 +25,37 @@ class AppPages {
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+      // transition: Transition.rightToLeft,
     ),
     GetPage(
       name: _Paths.DASHBOARD,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
+      // // transition: Transition.rightToLeft,
     ),
     GetPage(
       name: _Paths.VEHICLE_REGISTRATION,
       page: () => const VehicleRegistrationView(),
       binding: VehicleRegistrationBinding(),
+      // // transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: _Paths.VEHICLE_SPEC,
+      page: () => const VehicleSpecView(),
+      binding: VehicleSpecBinding(),
+      // // transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: _Paths.VEHICLE_SPEC_FORM,
+      page: () => const VehicleSpecFormView(),
+      binding: VehicleSpecFormBinding(),
+      // // transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: _Paths.FORM_CREATED,
+      page: () => const FormCreatedView(),
+      binding: FormCreatedBinding(),
+      // transition: Transition.rightToLeft,
     ),
   ];
 }

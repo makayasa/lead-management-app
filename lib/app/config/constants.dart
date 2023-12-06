@@ -36,10 +36,15 @@ const kIconTheme = IconThemeData(
 
 const kAppbarTheme = AppBarTheme(
   iconTheme: kIconTheme,
+  surfaceTintColor: kBgWhite,
 );
 
 const kFloatingActionButton = FloatingActionButtonThemeData(
   backgroundColor: kPrimaryColor,
+);
+
+const kTextSelectionTheme = TextSelectionThemeData(
+  cursorColor: kPrimaryColor,
 );
 
 const kInputDecorationTheme = InputDecorationTheme(
@@ -64,28 +69,3 @@ DecoratedLineConnector timelineConnector({Color color = kPrimaryColor}) {
     ),
   );
 }
-
-// const kStartConnector = DecoratedLineConnector(
-//   thickness: 4,
-//   decoration: BoxDecoration(
-//     color: kPrimaryColor,
-//   ),
-// );
-// const kStartConnectorInactive = DecoratedLineConnector(
-//   thickness: 4,
-//   decoration: BoxDecoration(
-//     color: kInactiveColor,
-//   ),
-// );
-
-// const kEndConnector = DecoratedLineConnector(
-//   thickness: 4,
-//   decoration: BoxDecoration(
-//     color: kPrimaryColor,
-//   ),
-// );const kEndConnectorInactive = DecoratedLineConnector(
-//   thickness: 4,
-//   decoration: BoxDecoration(
-//     color: kInactiveColor,
-//   ),
-// );

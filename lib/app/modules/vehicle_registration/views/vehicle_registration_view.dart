@@ -7,6 +7,7 @@ import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
 import 'package:timelines/timelines.dart';
 
+import '../../../components/screen_header.dart';
 import '../controllers/vehicle_registration_controller.dart';
 
 class VehicleRegistrationView extends GetView<VehicleRegistrationController> {
@@ -15,31 +16,27 @@ class VehicleRegistrationView extends GetView<VehicleRegistrationController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // title: DefText('Home').large,
-        // centerTitle: true,
-        leading: Container(),
+        title: DefText('Home',color: kPrimaryColor).normal,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+          ),
+          onPressed: () {
+            Get.back();
+          },
+        ),
+        leadingWidth: 40,
+        titleSpacing: 0,
       ),
       body: Padding(
         padding: kDefaultScaffoldPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: const Icon(
-                    Icons.arrow_back,
-                    size: 20,
-                  ),
-                ),
-                const SizedBox(width: 5),
-                DefText('Home', color: kPrimaryColor).normal,
-              ],
-            ),
-            const SizedBox(height: 15),
+            // const ScreenHeader(
+            //   text: 'Home',
+            // ),
+            // const SizedBox(height: 15),
             DefText('Registration number*').extraLarge,
             const SizedBox(height: 5),
             DefText('Please insert vehicle registration number.').normal,

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:lead_management_app/app/components/default_dialog.dart';
+import 'package:lead_management_app/app/routes/app_pages.dart';
 
 class VehicleRegistrationController extends GetxController {
   @override
@@ -19,10 +20,14 @@ class VehicleRegistrationController extends GetxController {
 
   void next() {
     Get.dialog(
-      DefaultDialog(),
-      arguments: {
-        'test':'test'
-      },
+      DefaultDialog(
+        showCancel: true,
+        onConfirm: () {
+          Get.back();
+          Get.toNamed(Routes.VEHICLE_SPEC_FORM);
+        },
+      ),
+      arguments: {'test': 'test'},
     );
   }
 }

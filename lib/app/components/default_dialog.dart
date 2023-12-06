@@ -11,8 +11,15 @@ import 'package:lead_management_app/app/utils/function_utils.dart';
 import 'pulse_container.dart';
 
 class DefaultDialog extends StatelessWidget {
-  const DefaultDialog({super.key});
-
+  const DefaultDialog({
+    super.key,
+    this.onConfirm,
+    this.onCancel,
+    this.showCancel = false,
+  });
+  final Function()? onConfirm;
+  final Function()? onCancel;
+  final bool showCancel;
   @override
   Widget build(BuildContext context) {
     final arg = Get.arguments as Map;
@@ -78,21 +85,22 @@ class DefaultDialog extends StatelessWidget {
               const SizedBox(height: 15),
               DefaultButton(
                 width: double.infinity,
-                onTap: () {},
+                onTap: onConfirm,
                 child: Center(
                   child: DefText('Next', color: kBgWhite).normal,
                 ),
               ),
-              const SizedBox(height: 10),
-              DefaultButton(
-                width: double.infinity,
-                color: kBgWhite,
-                showBorder: true,
-                onTap: () {},
-                child: Center(
-                  child: DefText('Cancel').normal,
+              if (showCancel) const SizedBox(height: 10),
+              if (showCancel)
+                DefaultButton(
+                  width: double.infinity,
+                  color: kBgWhite,
+                  showBorder: true,
+                  onTap: onCancel ?? Get.back,
+                  child: Center(
+                    child: DefText('Cancel').normal,
+                  ),
                 ),
-              ),
             ],
           ),
         ),

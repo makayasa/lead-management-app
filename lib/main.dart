@@ -11,12 +11,14 @@ void main() {
       title: "Application",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
+      color: kPrimaryColor,
       theme: ThemeData(
         appBarTheme: kAppbarTheme,
         iconTheme: kIconTheme,
         primaryColor: kPrimaryColor,
         floatingActionButtonTheme: kFloatingActionButton,
         inputDecorationTheme: kInputDecorationTheme,
+        textSelectionTheme: kTextSelectionTheme,
       ),
     ),
   );
