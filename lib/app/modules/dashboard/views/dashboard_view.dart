@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:lead_management_app/app/components/default_button.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
@@ -29,17 +30,23 @@ class DashboardView extends GetView<DashboardController> {
             'assets/yoda-central.png',
           ),
         ),
-        actions: const [
-          Icon(
-            Icons.menu,
+        actions: [
+          GestureDetector(
+            onTap: () {
+              final hiveC = Get.find<HiveController>();
+            },
+            child: const Icon(
+              Icons.menu,
+            ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
         ],
         // centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final hiveC = Get.find<HiveController>();
+
           // final res = await hiveC.getDistrictByProvId(2);
           // logKey('res', res);
           // hiveC.hiveBox.clear();

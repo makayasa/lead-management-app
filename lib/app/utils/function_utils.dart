@@ -94,3 +94,18 @@ Map<String, dynamic> deepCopyMap(dynamic source) {
   // });
   return copy;
 }
+
+List<String> spitLicensePlate(String input) {
+  RegExp regex = RegExp(r'^([A-Za-z]{1,2})(\d+)([A-Za-z]{1,3})$');
+  Match? match = regex.firstMatch(input);
+
+  if (match != null) {
+    // match.group(1) akan berisi 1 atau 2 karakter pertama
+    // match.group(2) akan berisi angka di tengah
+    // match.group(3) akan berisi 1 sampai 3 karakter terakhir
+    return [match.group(1)!, match.group(2)!, match.group(3)!];
+  } else {
+    // Handle jika tidak ada kecocokan
+    return [];
+  }
+}

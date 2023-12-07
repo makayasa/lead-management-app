@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -31,6 +32,9 @@ void main() async {
       getPages: AppPages.routes,
       color: kPrimaryColor,
       initialBinding: GlobalBindings(),
+      localizationsDelegates: const [
+        FormBuilderLocalizationsDelegate(),
+      ],
       theme: ThemeData(
         appBarTheme: kAppbarTheme,
         iconTheme: kIconTheme,

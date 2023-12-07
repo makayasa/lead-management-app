@@ -78,3 +78,8 @@ DecoratedLineConnector timelineConnector({Color color = kPrimaryColor}) {
     ),
   );
 }
+
+const kSellerBox = 'seller';
+const kProvinceBox = 'province';
+const kDistrictBox = 'district';
+const kSubdistrictBox = 'subdistrict';

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 import 'package:get/get.dart';
 import 'package:lead_management_app/app/components/container_dot.dart';
@@ -15,8 +17,9 @@ class VehicleRegistrationView extends GetView<VehicleRegistrationController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: DefText('Home',color: kPrimaryColor).normal,
+        title: DefText('Home', color: kPrimaryColor).normal,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back,
@@ -33,17 +36,22 @@ class VehicleRegistrationView extends GetView<VehicleRegistrationController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // const ScreenHeader(
-            //   text: 'Home',
-            // ),
-            // const SizedBox(height: 15),
             DefText('Registration number*').extraLarge,
             const SizedBox(height: 5),
             DefText('Please insert vehicle registration number.').normal,
             const SizedBox(height: 20),
-            const TextField(
-              cursorColor: kPrimaryColor,
+            FormBuilderTextField(
+              name: 'license_plate',
+              controller: controller.textEditingController,
+              validator: FormBuilderValidators.compose([
+                // FormBuilderValidators.required(),
+                // FormBuilderValidators.match(pattern)
+              ]),
             ),
+            // TextField(
+            //   controller: controller.textEditingController,
+            //   cursorColor: kPrimaryColor,
+            // ),
             const SizedBox(height: 10),
             DefaultButton(
               width: double.infinity,
