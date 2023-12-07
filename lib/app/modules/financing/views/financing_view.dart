@@ -6,6 +6,7 @@ import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
 import 'package:lead_management_app/app/routes/app_pages.dart';
 
+import '../../../utils/function_utils.dart';
 import '../controllers/financing_controller.dart';
 
 class FinancingView extends GetView<FinancingController> {
@@ -96,9 +97,10 @@ class FinancingView extends GetView<FinancingController> {
                   return const SizedBox(height: 10);
                 },
                 itemBuilder: (context, index) {
+                  final data = controller.listFinancing[index];
                   return GestureDetector(
                     onTap: () {
-                      Get.toNamed(Routes.DETAIL_FINANCING);
+                      controller.toDeatilFinancing(data.uuid);
                     },
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -127,16 +129,16 @@ class FinancingView extends GetView<FinancingController> {
                             children: [
                               Row(
                                 children: [
-                                  DefText('Carry 2008').semilarge,
+                                  DefText('${data.model} ${data.manufactureYear}').semilarge,
                                   const SizedBox(width: 10),
                                   DefText(
-                                    '#P912UH',
+                                    data.licensePlate,
                                     color: kPrimaryColor,
                                     fontWeight: FontWeight.bold,
                                   ).normal,
                                 ],
                               ),
-                              DefText('Sumber makmur jaya', color: kInactiveColor).normal,
+                              DefText(data.seller.sellerName, color: kInactiveColor).normal,
                             ],
                           )
                         ],
