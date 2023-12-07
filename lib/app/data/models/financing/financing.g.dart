@@ -34,13 +34,14 @@ class FinancingAdapter extends TypeAdapter<Financing> {
       province: fields[14] as Province,
       district: fields[15] as District,
       subdistrict: fields[16] as Subdistrict,
+      status: fields[17] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Financing obj) {
     writer
-      ..writeByte(17)
+      ..writeByte(18)
       ..writeByte(0)
       ..write(obj.uuid)
       ..writeByte(1)
@@ -74,7 +75,9 @@ class FinancingAdapter extends TypeAdapter<Financing> {
       ..writeByte(15)
       ..write(obj.district)
       ..writeByte(16)
-      ..write(obj.subdistrict);
+      ..write(obj.subdistrict)
+      ..writeByte(17)
+      ..write(obj.status);
   }
 
   @override

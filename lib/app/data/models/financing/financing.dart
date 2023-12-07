@@ -3,6 +3,7 @@ import 'package:lead_management_app/app/data/models/address/district.dart';
 import 'package:lead_management_app/app/data/models/address/province.dart';
 import 'package:lead_management_app/app/data/models/address/subdistrict.dart';
 import 'package:lead_management_app/app/data/models/seller/seller.dart';
+import 'package:lead_management_app/app/utils/helpers/financing_card_helpers.dart';
 
 part 'financing.g.dart';
 
@@ -26,6 +27,7 @@ class Financing {
     required this.province,
     required this.district,
     required this.subdistrict,
+    this.status = FinancingStatusHelpers.LISTING,
   });
 
   @HiveField(0)
@@ -62,6 +64,8 @@ class Financing {
   District district;
   @HiveField(16)
   Subdistrict subdistrict;
+  @HiveField(17)
+  String status;
 
   factory Financing.fromJson(Map<String, dynamic> json) => Financing(
         uuid: json['uuid'],
@@ -76,11 +80,12 @@ class Financing {
         transmission: json['transmission'],
         exteriorColor: json['exterior_color'],
         price: json['price'],
-        notes: json['notes'],
+        notes: json['notes'] ?? '',
         seller: json['seller'] is Seller ? json['seller'] : Seller.fromJson(json['seller']),
         province: json['province'] is Province ? json['province'] : Province.fromJson(json['province']),
         district: json['district'] is District ? json['district'] : District.fromJson(json['district']),
         subdistrict: json['sub_district'] is Subdistrict ? json['sub_district'] : Subdistrict.fromJson(json['sub_district']),
+        status: json['status'] ?? FinancingStatusHelpers.LISTING,
       );
 
   factory Financing.init() => Financing(
@@ -121,5 +126,6 @@ class Financing {
         'province': province.toJson(),
         'district': district.toJson(),
         'sub_district': subdistrict.toJson(),
+        'status': status,
       };
 }

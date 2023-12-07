@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
+import 'package:lead_management_app/app/utils/helpers/financing_card_helpers.dart';
 
+import '../components/financing_tab_item.dart';
 import '../controllers/financing_controller.dart';
 
 class FinancingView extends GetView<FinancingController> {
@@ -38,7 +40,7 @@ class FinancingView extends GetView<FinancingController> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                // padding: const EdgeInsets.symmetric(horizontal: 10),
                 height: 30,
                 decoration: BoxDecoration(
                   // color: Colors.amber,
@@ -52,32 +54,74 @@ class FinancingView extends GetView<FinancingController> {
                   physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   children: [
-                    Center(
-                      child: DefText('Listing').normal,
+                    FinancingTabItem(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                      ),
+                      // text: 'Listing',
+                      text: FinancingStatusHelpers.LISTING,
+                      onTap: () {},
                     ),
-                    const VerticalDivider(),
-                    Center(
-                      child: DefText('Inspecting').normal,
+                    const VerticalDivider(
+                      width: 5,
                     ),
-                    const VerticalDivider(),
-                    Center(
-                      child: DefText('Visited').normal,
+                    FinancingTabItem(
+                      text: FinancingStatusHelpers.INSPECTING,
+                      onTap: () {},
                     ),
-                    const VerticalDivider(),
-                    Center(
-                      child: DefText('Assigning Su').normal,
+                    const VerticalDivider(
+                      width: 5,
                     ),
-                    const VerticalDivider(),
-                    Center(
-                      child: DefText('Unit not available').normal,
+                    FinancingTabItem(
+                      text: FinancingStatusHelpers.VISITED,
+                      onTap: () {},
                     ),
-                    const VerticalDivider(),
-                    Center(
-                      child: DefText('Unit not available').normal,
+                    const VerticalDivider(
+                      width: 5,
                     ),
-                    const VerticalDivider(),
-                    Center(
-                      child: DefText('Unit not available').normal,
+                    FinancingTabItem(
+                      text: FinancingStatusHelpers.ASSIGNING_SURVEYOR,
+                      onTap: () {},
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    FinancingTabItem(
+                      text: FinancingStatusHelpers.SURVEYING,
+                      onTap: () {},
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    FinancingTabItem(
+                      text: FinancingStatusHelpers.APPROVAL,
+                      onTap: () {},
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    FinancingTabItem(
+                      text: FinancingStatusHelpers.PURCHASING_ORDER,
+                      onTap: () {},
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    FinancingTabItem(
+                      text: FinancingStatusHelpers.REJECTED,
+                      onTap: () {},
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    FinancingTabItem(
+                      borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      ),
+                      text: FinancingStatusHelpers.UNIT_NOT_AVAILABLE,
+                      onTap: () {},
                     ),
                   ],
                 ),

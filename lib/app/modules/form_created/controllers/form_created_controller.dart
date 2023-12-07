@@ -1,11 +1,47 @@
 import 'package:get/get.dart';
+import 'package:lead_management_app/app/utils/function_utils.dart';
+
+import '../../../routes/app_pages.dart';
 
 class FormCreatedController extends GetxController {
-  //TODO: Implement FormCreatedController
+  void checkCard() {
+    // Get.offNamedUntil(Routes.DASHBOARD, (route) => false);
+    logKey('arguments', Get.arguments);
+    final financingUuid = Get.arguments['financing_uuid'];
+    // return;
+    Get.until((route) => Get.currentRoute == Routes.DASHBOARD);
+    // return;
+    // Get.close(3);
+    // Get.toNamed(page)
+    Get.toNamed(Routes.FINANCING);
+    Get.toNamed(
+      Routes.DETAIL_FINANCING,
+      arguments: {
+        'financing_uuid': financingUuid,
+      },
+    );
+  }
 
-  final count = 0.obs;
+  void submitAnother() {
+    Get.offNamedUntil(Routes.VEHICLE_REGISTRATION, (route) => false);
+  }
 
+  void backToHome() {
+    Get.offNamedUntil(Routes.DASHBOARD, (route) => false);
+  }
 
+  @override
+  void onInit() {
+    super.onInit();
+  }
 
-  void increment() => count.value++;
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
 }

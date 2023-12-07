@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/data/models/financing/financing.dart';
 import 'package:lead_management_app/app/routes/app_pages.dart';
+import 'package:lead_management_app/app/utils/function_utils.dart';
 
 class FinancingController extends GetxController {
   //TODO: Implement FinancingController
@@ -10,14 +11,11 @@ class FinancingController extends GetxController {
 
   Future<void> getFinancings() async {
     List<Financing> temp = await hiveC.getAllFinancing() ?? [];
+    logKey('getFinancings', temp);
     listFinancing.assignAll(temp);
   }
 
   void toDeatilFinancing(String uuid) async {
-    // final res = await hiveC.getFinanceById(uuid);
-    // if (res == null) {
-    //   return;
-    // }
     Get.toNamed(
       Routes.DETAIL_FINANCING,
       arguments: {
@@ -35,6 +33,4 @@ class FinancingController extends GetxController {
     super.onInit();
     initialFunction();
   }
-
-
 }

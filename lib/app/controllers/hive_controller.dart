@@ -225,7 +225,7 @@ class HiveController extends GetxController {
 
   Future<void> createFinance(Financing financing) async {
     final financingBox = await Hive.openBox<Financing>(kFinancingBox);
-    // await financingBox.add(financing);
+    await financingBox.add(financing);
     await financingBox.close();
   }
 
@@ -233,6 +233,7 @@ class HiveController extends GetxController {
     final financingBox = await Hive.openBox<Financing>(kFinancingBox);
     try {
       final res = financingBox.values;
+      logKey('financingBox', res);
       if (isEmpty(res)) {
         return null;
       }
@@ -266,8 +267,6 @@ class HiveController extends GetxController {
     super.onInit();
     initialFunction();
   }
-
-
 
   void initialFunction() async {
     await getApplicationDocumentsDirectory();
