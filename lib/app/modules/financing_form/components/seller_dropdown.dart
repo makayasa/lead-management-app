@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 
 import '../../../components/default_text.dart';
@@ -22,6 +23,9 @@ class SellerDropdown extends GetView<FinancingFormController> {
           () => FormBuilderDropdown<Seller>(
             decoration: const InputDecoration(contentPadding: EdgeInsets.only(left: 10, right: 10)),
             name: 'seller',
+            validator: FormBuilderValidators.compose([
+              FormBuilderValidators.required(),
+            ]),
             items: controller.sellers
                 .map(
                   (element) => DropdownMenuItem(

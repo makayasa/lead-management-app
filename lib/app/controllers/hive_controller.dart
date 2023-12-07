@@ -5,6 +5,7 @@ import 'package:lead_management_app/app/data/dummy_data.dart';
 import 'package:lead_management_app/app/data/models/address/district.dart';
 import 'package:lead_management_app/app/data/models/address/province.dart';
 import 'package:lead_management_app/app/data/models/address/subdistrict.dart';
+import 'package:lead_management_app/app/data/models/financing/financing.dart';
 import 'package:lead_management_app/app/data/models/seller/seller.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
@@ -12,12 +13,7 @@ import 'package:uuid/uuid.dart';
 import '../utils/function_utils.dart';
 
 class HiveController extends GetxController {
-  // final hiveBox = Hive.box('myBox');
-  // late Box hiveBox;
-  // late Box sellersBox;
-  final DummyData dummyData = DummyData();
-  // late BoxCollection collection;
-  // late CollectionBox<Map<dynamic, dynamic>> sellersBox;
+  final DummyData _dummyData = DummyData();
 
   Future<void> insertDummySellers() async {
     final _seller = await Hive.openBox<Seller>(kSellerBox);
@@ -28,7 +24,7 @@ class HiveController extends GetxController {
       return;
     }
     var a = <Seller>[];
-    for (var e in dummyData.dummySellers) {
+    for (var e in _dummyData.dummySellers) {
       e['uuid'] = const Uuid().v4();
       final data = Seller.fromJson(e);
       a.add(data);
@@ -49,7 +45,7 @@ class HiveController extends GetxController {
       return;
     }
     var a = <Province>[];
-    for (var e in dummyData.dataDummyProvinsi) {
+    for (var e in _dummyData.dataDummyProvinsi) {
       final data = Province.fromJson(e);
       a.add(data);
     }
@@ -68,7 +64,7 @@ class HiveController extends GetxController {
       return;
     }
     var a = <District>[];
-    for (var e in dummyData.dataDummyDistrict) {
+    for (var e in _dummyData.dataDummyDistrict) {
       final data = District.fromJson(e);
       a.add(data);
     }
@@ -87,7 +83,7 @@ class HiveController extends GetxController {
       return;
     }
     var a = <Subdistrict>[];
-    for (var e in dummyData.dataDummySubD) {
+    for (var e in _dummyData.dataDummySubD) {
       final data = Subdistrict.fromJson(e);
       a.add(data);
     }
@@ -228,6 +224,12 @@ class HiveController extends GetxController {
     }
   }
 
+  Future<void> createFinance(Financing financing) async {
+    final financingBox = await Hive.openBox<Financing>(kFinancingBox);
+    await financingBox.add(financing);
+    await financingBox.close();
+  }
+
   @override
   void onInit() {
     super.onInit();
@@ -245,30 +247,10 @@ class HiveController extends GetxController {
   }
 
   void initialFunction() async {
-    // await hf.Hive.initFlutter();
     await getApplicationDocumentsDirectory();
     await insertDummySellers();
     await insertDummyProvince();
     await insertDummyDistrict();
     await insertDummySubdistrict();
-  }
-
-  Map<String, dynamic> convertToMapStringDynamic(dynamic input) {
-    if (input is Map<dynamic, dynamic>) {
-      Map<String, dynamic> resultMap = {};
-
-      input.forEach((key, value) {
-        // Menjamin bahwa kunci dapat diubah menjadi String
-        if (key is String) {
-          resultMap[key] = value;
-        } else {
-          // Lakukan penanganan sesuai dengan kebutuhan, contoh di sini hanya mengabaikan kunci yang bukan String
-        }
-      });
-
-      return resultMap;
-    } else {
-      throw ArgumentError('Input is not of type Map<dynamic, dynamic>');
-    }
   }
 }

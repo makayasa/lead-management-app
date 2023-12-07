@@ -7,6 +7,7 @@ import 'package:lead_management_app/app/config/constants.dart';
 import 'package:lead_management_app/app/data/models/address/district.dart';
 import 'package:lead_management_app/app/data/models/address/province.dart';
 import 'package:lead_management_app/app/data/models/address/subdistrict.dart';
+import 'package:lead_management_app/app/data/models/financing/financing.dart';
 import 'package:lead_management_app/app/data/models/seller/address.dart';
 import 'package:lead_management_app/app/data/models/seller/seller.dart';
 import 'package:lead_management_app/app/utils/function_utils.dart';
@@ -24,7 +25,7 @@ void main() async {
   Hive.registerAdapter(ProvinceAdapter());
   Hive.registerAdapter(DistrictAdapter());
   Hive.registerAdapter(SubdistrictAdapter());
-  logKey('after');
+  Hive.registerAdapter(FinancingAdapter());
   runApp(
     GetMaterialApp(
       title: "Application",
@@ -39,6 +40,7 @@ void main() async {
         appBarTheme: kAppbarTheme,
         iconTheme: kIconTheme,
         primaryColor: kPrimaryColor,
+        primaryColorLight: kPrimaryColor,
         floatingActionButtonTheme: kFloatingActionButton,
         inputDecorationTheme: kInputDecorationTheme,
         textSelectionTheme: kTextSelectionTheme,

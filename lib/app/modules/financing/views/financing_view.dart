@@ -87,62 +87,64 @@ class FinancingView extends GetView<FinancingController> {
             const SizedBox(height: 10),
             kDivider,
             const SizedBox(height: 10),
-            ListView.separated(
-              shrinkWrap: true,
-              itemCount: 10,
-              physics: const NeverScrollableScrollPhysics(),
-              separatorBuilder: (context, index) {
-                return const SizedBox(height: 10);
-              },
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    Get.toNamed(Routes.DETAIL_FINANCING);
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: kInactiveColor,
-                      ),
-                      borderRadius: kDefaultBorderRadius,
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 30,
-                          width: 30,
-                          decoration: const BoxDecoration(
-                            // color: kPrimaryColor,
-                            shape: BoxShape.circle,
-                          ),
-                          child: CachedNetworkImage(
-                            imageUrl: 'https://cdn.idntimes.com/content-images/post/20210623/1280px-suzuki-logo-2svg-618bfa5b29cfbdff54b843503f462364.png',
-                          ),
+            Obx(
+              () => ListView.separated(
+                shrinkWrap: true,
+                itemCount: controller.listFinancing.length,
+                physics: const NeverScrollableScrollPhysics(),
+                separatorBuilder: (context, index) {
+                  return const SizedBox(height: 10);
+                },
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.DETAIL_FINANCING);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: kInactiveColor,
                         ),
-                        const SizedBox(width: 10),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                DefText('Carry 2008').semilarge,
-                                const SizedBox(width: 10),
-                                DefText(
-                                  '#P912UH',
-                                  color: kPrimaryColor,
-                                  fontWeight: FontWeight.bold,
-                                ).normal,
-                              ],
+                        borderRadius: kDefaultBorderRadius,
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 30,
+                            width: 30,
+                            decoration: const BoxDecoration(
+                              // color: kPrimaryColor,
+                              shape: BoxShape.circle,
                             ),
-                            DefText('Sumber makmur jaya', color: kInactiveColor).normal,
-                          ],
-                        )
-                      ],
+                            child: CachedNetworkImage(
+                              imageUrl: 'https://cdn.idntimes.com/content-images/post/20210623/1280px-suzuki-logo-2svg-618bfa5b29cfbdff54b843503f462364.png',
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  DefText('Carry 2008').semilarge,
+                                  const SizedBox(width: 10),
+                                  DefText(
+                                    '#P912UH',
+                                    color: kPrimaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ).normal,
+                                ],
+                              ),
+                              DefText('Sumber makmur jaya', color: kInactiveColor).normal,
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
             const SizedBox(height: 10),
             Container(

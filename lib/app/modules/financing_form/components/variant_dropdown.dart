@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../../../components/default_text.dart';
 
@@ -17,6 +18,9 @@ class VariantDropdown extends StatelessWidget {
         FormBuilderDropdown<String>(
           decoration: const InputDecoration(contentPadding: EdgeInsets.only(left: 10, right: 10)),
           name: 'variant',
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(),
+          ]),
           items: [
             DropdownMenuItem(
               value: '3.9 FE 71 Solar',

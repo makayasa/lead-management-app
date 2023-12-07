@@ -1,9 +1,15 @@
 import 'package:get/get.dart';
+import 'package:lead_management_app/app/controllers/hive_controller.dart';
 
 class FinancingController extends GetxController {
   //TODO: Implement FinancingController
+  final hiveC = Get.find<HiveController>();
+  final listFinancing = [].obs;
 
-  final count = 0.obs;
+  // void getFinancings() {
+  //   hiveC
+  // }
+
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +24,4 @@ class FinancingController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

@@ -5,8 +5,11 @@ import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/data/models/address/district.dart';
 import 'package:lead_management_app/app/data/models/address/province.dart';
 import 'package:lead_management_app/app/data/models/address/subdistrict.dart';
+import 'package:lead_management_app/app/data/models/financing/financing.dart';
 import 'package:lead_management_app/app/data/models/seller/seller.dart';
+import 'package:lead_management_app/app/routes/app_pages.dart';
 import 'package:lead_management_app/app/utils/function_utils.dart';
+import 'package:uuid/uuid.dart';
 
 class FinancingFormController extends GetxController {
   final formKey = GlobalKey<FormBuilderState>();
@@ -17,8 +20,6 @@ class FinancingFormController extends GetxController {
   final provinces = <Province>[].obs;
   final districts = <District>[].obs;
   final subdistrcts = <Subdistrict>[].obs;
-
-  final count = 0.obs;
 
   void getSellers() async {
     List<Seller> res = await hiveC.getAllSellers() ?? [];
@@ -53,6 +54,32 @@ class FinancingFormController extends GetxController {
       ..refresh();
   }
 
+  void next() async {
+    final isValid = formKey.currentState!.saveAndValidate();
+    if (!isValid) {
+      return;
+    }
+    final uuid = const Uuid().v4();
+    Map<String, dynamic> temp = {};
+    var data = formKey.currentState!.value;
+    temp.assignAll(data);
+    temp['uuid'] = uuid;
+    temp['license_plate'] = Get.arguments['license_plate'];
+    String priceBefore = temp['price'];
+    priceBefore = priceBefore.replaceAll(',', '');
+    final newPrice = int.parse(priceBefore);
+    temp['price'] = newPrice;
+    var financingData = Financing.fromJson(temp);
+    await hiveC.createFinance(financingData);
+    logKey('financing created');
+    Get.toNamed(
+      Routes.FORM_CREATED,
+      arguments: {
+        'financing_uuid': financingData.uuid,
+      },
+    );
+  }
+
   void initialFunction() async {
     getSellers();
     getAllProvince();
@@ -73,6 +100,4 @@ class FinancingFormController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

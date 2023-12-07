@@ -49,6 +49,7 @@ const kFloatingActionButton = FloatingActionButtonThemeData(
 
 const kTextSelectionTheme = TextSelectionThemeData(
   cursorColor: kPrimaryColor,
+  selectionHandleColor: kPrimaryColor
 );
 
 const kInputDecorationTheme = InputDecorationTheme(
@@ -83,3 +84,4 @@ const kSellerBox = 'seller';
 const kProvinceBox = 'province';
 const kDistrictBox = 'district';
 const kSubdistrictBox = 'subdistrict';
+const kFinancingBox = 'financing';

@@ -36,13 +36,6 @@ class FinancingFormView extends GetView<FinancingFormController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // controller.formKey.currentState!.saveAndValidate();
-          // final data = controller.formKey.currentState!.value;
-          // logKey('data', data);
-        },
-      ),
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(
@@ -140,7 +133,7 @@ class FinancingFormView extends GetView<FinancingFormController> {
                     DefaultButton(
                       width: 70,
                       onTap: () {
-                        Get.toNamed(Routes.FORM_CREATED);
+                        controller.next();
                       },
                       child: Center(
                         child: DefText('Next', color: kBgWhite).normal,

@@ -43,17 +43,6 @@ class DashboardView extends GetView<DashboardController> {
         ],
         // centerTitle: true,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          final hiveC = Get.find<HiveController>();
-
-          // final res = await hiveC.getDistrictByProvId(2);
-          // logKey('res', res);
-          // hiveC.hiveBox.clear();
-          // await hiveC.inserDummy();
-          // await hiveC.getDataDummies();
-        },
-      ),
       body: Padding(
         padding: kDefaultScaffoldPadding,
         child: SingleChildScrollView(
@@ -169,18 +158,21 @@ class DashboardView extends GetView<DashboardController> {
                     title: 'Purchasing order',
                     desc: 'Marketing officer',
                     number: 2420,
+                    isOpen: false,
                   ),
                   kDivider,
                   DashboardItem(
                     title: 'Rejected',
                     desc: 'Marketing officer',
                     number: 1210,
+                    isOpen: false,
                   ),
                   kDivider,
                   DashboardItem(
                     title: 'Unit not available',
                     desc: 'Marketing officer',
                     number: 20,
+                    isOpen: false,
                   ),
                   kDivider,
                 ],

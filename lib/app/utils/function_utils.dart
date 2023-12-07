@@ -1,7 +1,9 @@
 import 'dart:developer' as dev;
 import 'dart:convert';
 
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 void logKey([key, content]) {
   String finalLog = '';
@@ -43,8 +45,53 @@ String formatNumber(int number) {
       count = 0;
     }
   }
-
   return result;
+}
+
+double doubleParse(args) {
+  try {
+    if (args is double) {
+      return args;
+    } else if (args is String) {
+      return double.parse(args);
+    } else {
+      return double.parse(args.toString());
+    }
+  } catch (e) {
+    return 0;
+  }
+}
+
+String currencyFormat(dynamic number) {
+  try {
+    if (number is String) {
+      number = number.replaceAll(',', '');
+      return NumberFormat("#,##0", "en_US").format(doubleParse(number));
+    }
+    if (number is double || number is int) {
+      return NumberFormat("#,##0", "en_US").format(number);
+    }
+    return '-';
+  } catch (e) {
+    logKey('Error currencyFormat', e);
+    return '-';
+  }
+}
+
+class CurrencyInputFormatter extends TextInputFormatter {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    if (newValue.selection.baseOffset == 0) {
+      return newValue;
+    }
+
+    double value = double.parse(newValue.text);
+
+    final formatter = NumberFormat.decimalPattern('en_US');
+
+    String newText = formatter.format(value);
+
+    return newValue.copyWith(text: newText, selection: new TextSelection.collapsed(offset: newText.length));
+  }
 }
 
 bool isEmpty(dynamic val) {
