@@ -33,82 +33,90 @@ class VehicleRegistrationView extends GetView<VehicleRegistrationController> {
       ),
       body: Padding(
         padding: kDefaultScaffoldPadding,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            DefText('Registration number*').extraLarge,
-            const SizedBox(height: 5),
-            DefText('Please insert vehicle registration number.').normal,
-            const SizedBox(height: 20),
-            FormBuilderTextField(
-              name: 'license_plate',
-              controller: controller.textEditingController,
-              validator: FormBuilderValidators.compose([
-                // FormBuilderValidators.required(),
-                // FormBuilderValidators.match(pattern)
-              ]),
-            ),
-            // TextField(
-            //   controller: controller.textEditingController,
-            //   cursorColor: kPrimaryColor,
-            // ),
-            const SizedBox(height: 10),
-            DefaultButton(
-              width: double.infinity,
-              onTap: () {
-                controller.next();
-              },
-              child: Center(
-                child: DefText('Next', color: kBgWhite).normal,
+        child: FormBuilder(
+          key: controller.formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              DefText('Registration number*').extraLarge,
+              const SizedBox(height: 5),
+              DefText('Please insert vehicle registration number.').normal,
+              const SizedBox(height: 20),
+              FormBuilderTextField(
+                name: 'license_plate',
+                controller: controller.textEditingController,
+                onChanged: (value) {},
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                textCapitalization: TextCapitalization.characters,
+                validator: FormBuilderValidators.compose(
+                  [
+                    FormBuilderValidators.required(),
+                    FormBuilderValidators.match(r"^[A-Z]{1,2}\s?\d{1,4}\s?[A-Z]{0,3}$", errorText: 'Incorrect lincese plate format.'),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 35),
-            Timeline(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              children: [
-                TimelineTile(
-                  nodeAlign: TimelineNodeAlign.start,
-                  node: TimelineNode(
-                    indicator: ContainerDot(),
-                    indicatorPosition: 0,
-                    endConnector: timelineConnector(),
-                  ),
-                  contents: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    // mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      DefText('Registration number', color: kPrimaryColor).semilarge,
-                      const SizedBox(height: 5),
-                      DefText('Please insert vehicle registration number', color: kPrimaryColor).normal,
-                      const SizedBox(height: 20),
-                    ],
-                  ),
+              // TextField(
+              //   controller: controller.textEditingController,
+              //   cursorColor: kPrimaryColor,
+              // ),
+              const SizedBox(height: 10),
+              DefaultButton(
+                width: double.infinity,
+                onTap: () {
+                  controller.next();
+                },
+                child: Center(
+                  child: DefText('Next', color: kBgWhite).normal,
                 ),
-                TimelineTile(
-                  nodeAlign: TimelineNodeAlign.start,
-                  node: TimelineNode(
-                    indicatorPosition: 0,
-                    indicator: const ContainerDot(
-                      color: kInactiveColor,
+              ),
+              const SizedBox(height: 35),
+              Timeline(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                children: [
+                  TimelineTile(
+                    nodeAlign: TimelineNodeAlign.start,
+                    node: TimelineNode(
+                      indicator: ContainerDot(),
+                      indicatorPosition: 0,
+                      endConnector: timelineConnector(),
                     ),
-                    startConnector: timelineConnector(),
-                    endConnector: timelineConnector(color: kInactiveColor),
+                    contents: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        DefText('Registration number', color: kPrimaryColor).semilarge,
+                        const SizedBox(height: 5),
+                        DefText('Please insert vehicle registration number', color: kPrimaryColor).normal,
+                        const SizedBox(height: 20),
+                      ],
+                    ),
                   ),
-                  contents: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      DefText('Detail information', color: kPrimaryColor).semilarge,
-                      const SizedBox(height: 5),
-                      DefText('Please insert vehicle detail information').normal,
-                      const SizedBox(height: 20),
-                    ],
+                  TimelineTile(
+                    nodeAlign: TimelineNodeAlign.start,
+                    node: TimelineNode(
+                      indicatorPosition: 0,
+                      indicator: const ContainerDot(
+                        color: kInactiveColor,
+                      ),
+                      startConnector: timelineConnector(),
+                      endConnector: timelineConnector(color: kInactiveColor),
+                    ),
+                    contents: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        DefText('Detail information', color: kPrimaryColor).semilarge,
+                        const SizedBox(height: 5),
+                        DefText('Please insert vehicle detail information').normal,
+                        const SizedBox(height: 20),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

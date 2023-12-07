@@ -12,18 +12,28 @@ import 'pulse_container.dart';
 
 class DefaultDialog extends StatelessWidget {
   const DefaultDialog({
+    required this.title,
+    required this.message,
     super.key,
     this.onConfirm,
     this.onCancel,
     this.showCancel = false,
+    this.confirmText = 'Confirm',
+    this.cancelText = 'Cancel',
   });
   final Function()? onConfirm;
   final Function()? onCancel;
   final bool showCancel;
+
+  final String title;
+  final Widget message;
+
+  final String confirmText;
+  final String cancelText;
   @override
   Widget build(BuildContext context) {
-    final arg = Get.arguments as Map;
-    logKey('arg', arg);
+    // final arg = Get.arguments as Map;
+    // logKey('arg', arg);
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 4.3, sigmaY: 4.3),
       child: Dialog(
@@ -62,26 +72,10 @@ class DefaultDialog extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              DefText('B 2323 SLI').large,
+              // DefText('B 2323 SLI').large,
+              DefText(title).large,
               const SizedBox(height: 10),
-              RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Make sure that the numner you put in is correct, because it'll be ",
-                      style: kDefaultTextStyle.copyWith(fontSize: 12.7),
-                    ),
-                    TextSpan(
-                      text: 'unreplaceable',
-                      style: kDefaultTextStyle.copyWith(color: kRed, fontSize: 12.7),
-                    ),
-                    TextSpan(
-                      text: " after you clicking the next button down bellow",
-                      style: kDefaultTextStyle.copyWith(fontSize: 12.7),
-                    ),
-                  ],
-                ),
-              ),
+              message,
               const SizedBox(height: 15),
               DefaultButton(
                 width: double.infinity,
