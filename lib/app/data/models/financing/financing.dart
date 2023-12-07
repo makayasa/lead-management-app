@@ -3,7 +3,6 @@ import 'package:lead_management_app/app/data/models/address/district.dart';
 import 'package:lead_management_app/app/data/models/address/province.dart';
 import 'package:lead_management_app/app/data/models/address/subdistrict.dart';
 import 'package:lead_management_app/app/data/models/seller/seller.dart';
-import 'package:lead_management_app/app/utils/function_utils.dart';
 
 part 'financing.g.dart';
 

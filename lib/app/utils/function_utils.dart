@@ -2,7 +2,6 @@ import 'dart:developer' as dev;
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 void logKey([key, content]) {
@@ -79,6 +78,7 @@ String currencyFormat(dynamic number) {
 }
 
 class CurrencyInputFormatter extends TextInputFormatter {
+  @override
   TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     if (newValue.selection.baseOffset == 0) {
       return newValue;
@@ -90,7 +90,7 @@ class CurrencyInputFormatter extends TextInputFormatter {
 
     String newText = formatter.format(value);
 
-    return newValue.copyWith(text: newText, selection: new TextSelection.collapsed(offset: newText.length));
+    return newValue.copyWith(text: newText, selection: TextSelection.collapsed(offset: newText.length));
   }
 }
 

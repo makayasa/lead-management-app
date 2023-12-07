@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
-import 'package:lead_management_app/app/routes/app_pages.dart';
 
-import '../../../utils/function_utils.dart';
 import '../controllers/financing_controller.dart';
 
 class FinancingView extends GetView<FinancingController> {
@@ -51,7 +49,7 @@ class FinancingView extends GetView<FinancingController> {
                 ),
                 child: ListView(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   children: [
                     Center(

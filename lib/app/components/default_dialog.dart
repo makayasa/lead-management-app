@@ -3,10 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lead_management_app/app/components/default_button.dart';
-import 'package:lead_management_app/app/components/default_rich_text.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
-import 'package:lead_management_app/app/utils/function_utils.dart';
 
 import 'pulse_container.dart';
 

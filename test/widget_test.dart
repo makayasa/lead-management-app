@@ -5,11 +5,8 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lead_management_app/app/utils/function_utils.dart';
 
-import 'package:lead_management_app/main.dart';
 
 bool checkLicensePlate(String input) {
   // Pola umum untuk plat nomor Indonesia
@@ -47,9 +44,9 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     // await tester.pumpWidget(const MyApp());
-    final string = 'B1234AB';
-    final string2 = 'BH1234ABA';
-    final string3 = 'BHZ1234ABA';
+    const string = 'B1234AB';
+    const string2 = 'BH1234ABA';
+    const string3 = 'BHZ1234ABA';
     isLicensePLate(string);
     isLicensePLate(string2);
     isLicensePLate(string3);

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:timelines/timelines.dart';
 
 const kPrimaryColor = Color(0xFF24a896);

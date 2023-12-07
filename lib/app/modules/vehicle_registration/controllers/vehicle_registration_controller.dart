@@ -10,20 +10,8 @@ import '../../../config/constants.dart';
 class VehicleRegistrationController extends GetxController {
   TextEditingController textEditingController = TextEditingController();
   final formKey = GlobalKey<FormBuilderState>();
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   void next() {
     logKey('zzxxcc', textEditingController.text);

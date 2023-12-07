@@ -13,15 +13,7 @@ class DashboardController extends GetxController with GetSingleTickerProviderSta
     tabController = TabController(length: 1, vsync: this);
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   void createVehicle() {
     Get.toNamed(Routes.VEHICLE_REGISTRATION);

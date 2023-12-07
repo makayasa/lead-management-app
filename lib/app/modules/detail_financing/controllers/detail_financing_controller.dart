@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/data/models/financing/financing.dart';
-import 'package:lead_management_app/app/utils/function_utils.dart';
 
 class DetailFinancingController extends GetxController {
   final hiveC = Get.find<HiveController>();
@@ -28,13 +27,5 @@ class DetailFinancingController extends GetxController {
     initialFunction();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 }

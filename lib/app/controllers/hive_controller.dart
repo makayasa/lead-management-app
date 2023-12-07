@@ -16,11 +16,11 @@ class HiveController extends GetxController {
   final DummyData _dummyData = DummyData();
 
   Future<void> insertDummySellers() async {
-    final _seller = await Hive.openBox<Seller>(kSellerBox);
-    if (_seller.isNotEmpty) {
+    final seller = await Hive.openBox<Seller>(kSellerBox);
+    if (seller.isNotEmpty) {
       //* karena ini insert dummy jadi cukup 1x saja
       //* karena data dummy di hardcode di dalam dart kemudian dimasukkan ke hive
-      await _seller.close();
+      await seller.close();
       return;
     }
     var a = <Seller>[];
@@ -30,18 +30,18 @@ class HiveController extends GetxController {
       a.add(data);
       // await _seller.add(data);
     }
-    await _seller.addAll(a);
-    await _seller.close();
+    await seller.addAll(a);
+    await seller.close();
     // await _seller.put('sellers', a);
     logKey('insertDummy success');
   }
 
   Future<void> insertDummyProvince() async {
-    final _province = await Hive.openBox<Province>(kProvinceBox);
-    if (_province.isNotEmpty) {
+    final province = await Hive.openBox<Province>(kProvinceBox);
+    if (province.isNotEmpty) {
       //* karena ini insert dummy jadi cukup 1x saja
       //* karena data dummy di hardcode di dalam dart kemudian dimasukkan ke hive
-      await _province.close();
+      await province.close();
       return;
     }
     var a = <Province>[];
@@ -50,17 +50,17 @@ class HiveController extends GetxController {
       a.add(data);
     }
     // await hiveBox.put('province', a);
-    await _province.addAll(a);
-    await _province.close();
+    await province.addAll(a);
+    await province.close();
     logKey('insertDummy success');
   }
 
   Future<void> insertDummyDistrict() async {
-    final _district = await Hive.openBox<District>(kDistrictBox);
-    if (_district.isNotEmpty) {
+    final district = await Hive.openBox<District>(kDistrictBox);
+    if (district.isNotEmpty) {
       //* karena ini insert dummy jadi cukup 1x saja
       //* karena data dummy di hardcode di dalam dart kemudian dimasukkan ke hive
-      await _district.close();
+      await district.close();
       return;
     }
     var a = <District>[];
@@ -69,17 +69,17 @@ class HiveController extends GetxController {
       a.add(data);
     }
     // await hiveBox.put('district', a);
-    await _district.addAll(a);
-    await _district.close();
+    await district.addAll(a);
+    await district.close();
     logKey('insertDummy success');
   }
 
   Future<void> insertDummySubdistrict() async {
-    final _subdis = await Hive.openBox<Subdistrict>(kSubdistrictBox);
-    if (_subdis.isNotEmpty) {
+    final subdis = await Hive.openBox<Subdistrict>(kSubdistrictBox);
+    if (subdis.isNotEmpty) {
       //* karena ini insert dummy jadi cukup 1x saja
       //* karena data dummy di hardcode di dalam dart kemudian dimasukkan ke hive
-      await _subdis.close();
+      await subdis.close();
       return;
     }
     var a = <Subdistrict>[];
@@ -88,15 +88,14 @@ class HiveController extends GetxController {
       a.add(data);
     }
     // await hiveBox.put('subdistrict', a);
-    await _subdis.addAll(a);
-    await _subdis.close();
+    await subdis.addAll(a);
+    await subdis.close();
     logKey('insertDummy success');
   }
 
   Future<List<Seller>?> getAllSellers() async {
     try {
       // final res = await hiveBox.values;
-      final isOpen = await Hive.isBoxOpen(kSellerBox);
       final seller = await Hive.openBox(kSellerBox);
       final res = seller.values;
       if (isEmpty(res)) {
@@ -116,7 +115,7 @@ class HiveController extends GetxController {
   Future<List<Province>?> getAllProvinces() async {
     final province = await Hive.openBox(kProvinceBox);
     try {
-      final res = await province.values;
+      final res = province.values;
       if (isEmpty(res)) {
         return null;
       }
@@ -136,7 +135,7 @@ class HiveController extends GetxController {
   Future<List<District>?> getAllDistrict() async {
     final district = await Hive.openBox(kDistrictBox);
     try {
-      final res = await district.values;
+      final res = district.values;
       if (isEmpty(res)) {
         return null;
       }
@@ -156,7 +155,7 @@ class HiveController extends GetxController {
   Future<List<District>?> getDistrictByProvId(int provinceId) async {
     final district = await Hive.openBox(kDistrictBox);
     try {
-      final res = await district.values;
+      final res = district.values;
       if (isEmpty(res)) {
         return null;
       }
@@ -181,7 +180,7 @@ class HiveController extends GetxController {
   Future<List<Subdistrict>?> getAllSubdistrict() async {
     final subDis = await Hive.openBox(kSubdistrictBox);
     try {
-      final res = await subDis.values;
+      final res = subDis.values;
       if (isEmpty(res)) {
         return null;
       }
@@ -202,7 +201,7 @@ class HiveController extends GetxController {
     final subDis = await Hive.openBox(kSubdistrictBox);
 
     try {
-      final res = await subDis.values;
+      final res = subDis.values;
       if (isEmpty(res)) {
         return null;
       }
@@ -268,15 +267,7 @@ class HiveController extends GetxController {
     initialFunction();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   void initialFunction() async {
     await getApplicationDocumentsDirectory();

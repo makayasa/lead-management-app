@@ -27,7 +27,7 @@ class DashboardItem extends StatelessWidget {
         color: kBgWhite.withOpacity(0),
         child: Row(
           children: [
-            Container(
+            SizedBox(
               height: 50,
               width: 50,
               // decoration: const BoxDecoration(

@@ -91,13 +91,5 @@ class FinancingFormController extends GetxController {
     initialFunction();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 }

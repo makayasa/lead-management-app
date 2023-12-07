@@ -2,18 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
-import 'package:lead_management_app/app/components/container_mark.dart';
 import 'package:lead_management_app/app/components/default_button.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
-import 'package:lead_management_app/app/data/models/seller/seller.dart';
 import 'package:lead_management_app/app/modules/financing_form/components/brand_dropdown.dart';
-import 'package:lead_management_app/app/routes/app_pages.dart';
-import 'package:lead_management_app/app/utils/function_utils.dart';
-import 'package:timelines/timelines.dart';
 
-import '../../../components/container_dot.dart';
 import '../components/condition_dropdown.dart';
 import '../components/district_dropdown.dart';
 import '../components/exterior_color_dropdown.dart';

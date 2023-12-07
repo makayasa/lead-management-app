@@ -10,7 +10,6 @@ import 'package:lead_management_app/app/data/models/address/subdistrict.dart';
 import 'package:lead_management_app/app/data/models/financing/financing.dart';
 import 'package:lead_management_app/app/data/models/seller/address.dart';
 import 'package:lead_management_app/app/data/models/seller/seller.dart';
-import 'package:lead_management_app/app/utils/function_utils.dart';
 import 'package:lead_management_app/app/utils/global_bindings.dart';
 import 'package:path_provider/path_provider.dart';
 

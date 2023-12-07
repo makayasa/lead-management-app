@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:lead_management_app/app/components/default_button.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
@@ -9,7 +8,6 @@ import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/modules/dashboard/components/dashboard_item.dart';
 import 'package:lead_management_app/app/routes/app_pages.dart';
 
-import '../../../utils/function_utils.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {

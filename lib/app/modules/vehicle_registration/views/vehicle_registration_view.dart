@@ -9,7 +9,6 @@ import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
 import 'package:timelines/timelines.dart';
 
-import '../../../components/screen_header.dart';
 import '../controllers/vehicle_registration_controller.dart';
 
 class VehicleRegistrationView extends GetView<VehicleRegistrationController> {
@@ -77,7 +76,7 @@ class VehicleRegistrationView extends GetView<VehicleRegistrationController> {
                   TimelineTile(
                     nodeAlign: TimelineNodeAlign.start,
                     node: TimelineNode(
-                      indicator: ContainerDot(),
+                      indicator: const ContainerDot(),
                       indicatorPosition: 0,
                       endConnector: timelineConnector(),
                     ),
