@@ -26,6 +26,13 @@ class Subdistrict {
         name: json['name'],
       );
 
+  factory Subdistrict.init() => Subdistrict(
+        id: -1,
+        districtId: -1,
+        provinceId: -1,
+        name: '',
+      );
+
   toJson() => {
         'id': id,
         'province_id': provinceId,

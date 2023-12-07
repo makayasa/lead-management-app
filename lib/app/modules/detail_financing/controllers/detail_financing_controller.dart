@@ -1,9 +1,17 @@
 import 'package:get/get.dart';
+import 'package:lead_management_app/app/controllers/hive_controller.dart';
+import 'package:lead_management_app/app/data/models/financing/financing.dart';
 
 class DetailFinancingController extends GetxController {
-  //TODO: Implement DetailFinancingController
+  final hiveC = Get.find<HiveController>();
 
-  final count = 0.obs;
+  final data = Financing.init().obs;
+
+  Future<void> getDetailFinancing() async {
+    final uuid = Get.arguments['uuid'];
+    hiveC.getFinanceById(uuid);
+  }
+
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +26,4 @@ class DetailFinancingController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

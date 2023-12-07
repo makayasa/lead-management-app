@@ -26,6 +26,12 @@ class Address {
         fullAddress: json['full_address'],
       );
 
+  factory Address.init() => Address(
+        province: '',
+        district: '',
+        subDistrict: '',
+        fullAddress: '',
+      );
   Map<String, dynamic> toJson() => {
         'province': province,
         'district': district,

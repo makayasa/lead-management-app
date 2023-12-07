@@ -21,6 +21,11 @@ class District {
         provinceId: json['province_id'],
         name: json['name'],
       );
+  factory District.init() => District(
+        id: -1,
+        name: '',
+        provinceId: -1,
+      );
 
   toJson() => {
         'id': id,

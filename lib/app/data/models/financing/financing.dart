@@ -84,6 +84,26 @@ class Financing {
         subdistrict: json['sub_district'] is Subdistrict ? json['sub_district'] : Subdistrict.fromJson(json['sub_district']),
       );
 
+  factory Financing.init() => Financing(
+        uuid: '',
+        licensePlate: '',
+        condition: '',
+        brand: '',
+        model: '',
+        variant: '',
+        manufactureYear: 0,
+        mileAge: '',
+        fuelType: '',
+        transmission: '',
+        exteriorColor: '',
+        price: 0,
+        notes: '',
+        seller: Seller.init(),
+        province: Province.init(),
+        district: District.init(),
+        subdistrict: Subdistrict.init(),
+      );
+
   toJson() => {
         'uuid': uuid,
         'license_plate': licensePlate,

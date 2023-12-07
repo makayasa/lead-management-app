@@ -27,6 +27,13 @@ class Seller {
         address: Address.fromJson(json['address']),
       );
 
+  factory Seller.init() => Seller(
+        uuid: '',
+        sellerName: '',
+        phoneNumber: '',
+        address: Address.init(),
+      );
+
   Map<String, dynamic> toJson() => {
         'uuid': uuid,
         'seller_name': sellerName,

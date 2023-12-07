@@ -17,6 +17,10 @@ class Province {
         id: json['id'],
         name: json['name'],
       );
+  factory Province.init() => Province(
+        id: -1,
+        name: '',
+      );
 
   Map<String, dynamic> toJson() => {
         'id': id,
