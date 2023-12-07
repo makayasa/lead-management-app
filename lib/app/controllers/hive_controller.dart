@@ -254,8 +254,10 @@ class HiveController extends GetxController {
     try {
       final index = financingBox.values.toList().indexWhere((element) => element.uuid == uuid);
       final res = financingBox.get(index);
+      financingBox.close();
       return res;
     } catch (e) {
+      financingBox.close();
       return null;
     }
   }

@@ -104,55 +104,77 @@ class DetailFinancingView extends GetView<DetailFinancingController> {
                 ],
               ),
             ),
-            const DetailFinancingItem(
-              color: kInactiveColor2,
-              title: 'Registration number',
-              data: 'B2323SLI',
+            Obx(
+              () => DetailFinancingItem(
+                color: kInactiveColor2,
+                title: 'Registration number',
+                data: controller.data.value.licensePlate,
+              ),
             ),
-            const DetailFinancingItem(
-              title: 'Condition',
-              data: 'Bekas',
+            Obx(
+              () => DetailFinancingItem(
+                title: 'Condition',
+                data: controller.data.value.condition,
+              ),
             ),
-            const DetailFinancingItem(
-              color: kInactiveColor2,
-              title: 'Brand',
-              data: 'Mitsubishi',
+            Obx(
+              () => DetailFinancingItem(
+                color: kInactiveColor2,
+                title: 'Brand',
+                data: controller.data.value.brand,
+              ),
             ),
-            const DetailFinancingItem(
-              title: 'Model',
-              data: 'Colt',
+            Obx(
+              () => DetailFinancingItem(
+                title: 'Model',
+                data: controller.data.value.model,
+              ),
             ),
-            const DetailFinancingItem(
-              color: kInactiveColor2,
-              title: 'Variant',
-              data: '3.9 FE 71 Solar',
+            Obx(
+              () => DetailFinancingItem(
+                color: kInactiveColor2,
+                title: 'Variant',
+                data: controller.data.value.variant,
+              ),
             ),
-            const DetailFinancingItem(
-              title: 'Manufacture year',
-              data: '2014',
+            Obx(
+              () => DetailFinancingItem(
+                title: 'Manufacture year',
+                data: '${controller.data.value.manufactureYear}',
+              ),
             ),
-            const DetailFinancingItem(
-              color: kInactiveColor2,
-              title: 'Mileage',
-              data: '25000 - 30000',
+            Obx(
+              () => DetailFinancingItem(
+                color: kInactiveColor2,
+                title: 'Mileage',
+                data: controller.data.value.mileAge,
+              ),
             ),
-            const DetailFinancingItem(
-              title: 'Fuel type',
-              data: 'Diesel',
+            Obx(
+              () => DetailFinancingItem(
+                title: 'Fuel type',
+                data: controller.data.value.fuelType,
+              ),
             ),
-            const DetailFinancingItem(
-              color: kInactiveColor2,
-              title: 'Transmission',
-              data: 'Manual',
+            Obx(
+              () => DetailFinancingItem(
+                color: kInactiveColor2,
+                title: 'Transmission',
+                data: controller.data.value.transmission,
+              ),
             ),
-            const DetailFinancingItem(
-              title: 'Exterior color',
-              data: 'Kuning',
+            Obx(
+              () => DetailFinancingItem(
+                title: 'Exterior color',
+                data: controller.data.value.exteriorColor,
+              ),
             ),
-            const DetailFinancingItem(
-              color: kInactiveColor2,
-              title: 'Price',
-              data: 'Rp 255,000,000',
+            Obx(
+              () => DetailFinancingItem(
+                color: kInactiveColor2,
+                title: 'Price',
+                data: 'Rp ${currencyFormat(controller.data.value.price)}',
+              ),
             ),
             const SizedBox(height: 10),
             Container(
@@ -163,7 +185,13 @@ class DetailFinancingView extends GetView<DetailFinancingController> {
                 children: [
                   DefText('Notes').normal,
                   const SizedBox(height: 10),
-                  DefText('Orisinil, pajak panjang, mesin joss, insha allah unit siap kerja. Cek unit di gunung putri, bogor.').normal,
+                  Obx(
+                    () => Container(
+                      child: DefText(
+                        controller.data.value.notes,
+                      ).normal,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -183,23 +211,31 @@ class DetailFinancingView extends GetView<DetailFinancingController> {
               ),
             ),
             const SizedBox(height: 10),
-            const DetailFinancingItem(
-              color: kInactiveColor2,
-              title: 'Seller name',
-              data: 'Sumbada Mobil Bogor',
+            Obx(
+              () => DetailFinancingItem(
+                color: kInactiveColor2,
+                title: 'Seller name',
+                data: controller.data.value.seller.sellerName,
+              ),
             ),
-            const DetailFinancingItem(
-              title: 'Mobile number',
-              data: '08128182328',
+            Obx(
+              () => DetailFinancingItem(
+                title: 'Mobile number',
+                data: controller.data.value.seller.phoneNumber,
+              ),
             ),
-            const DetailFinancingItem(
-              color: kInactiveColor2,
-              title: 'Province',
-              data: 'Jawa Barat',
+            Obx(
+              () => DetailFinancingItem(
+                color: kInactiveColor2,
+                title: 'Province',
+                data: controller.data.value.province.name,
+              ),
             ),
-            const DetailFinancingItem(
-              title: 'District',
-              data: 'Rawalumbu',
+            Obx(
+              () => DetailFinancingItem(
+                title: 'District',
+                data: controller.data.value.district.name,
+              ),
             ),
             const SizedBox(height: 10),
             Padding(
@@ -209,43 +245,18 @@ class DetailFinancingView extends GetView<DetailFinancingController> {
                 children: [
                   DefText('Full address').normal,
                   const SizedBox(height: 10),
-                  DefText(
-                    'Jl. Rawalumbu Utara No.34, Blok A Perumahan Rawalumbu Raya Cluster Gading.',
-                    color: kInactiveColor,
-                  ).normal,
+                  Obx(
+                    () => Container(
+                      child: DefText(
+                        controller.data.value.seller.address.fullAddress,
+                        color: kInactiveColor,
+                      ).normal,
+                    ),
+                  ),
                 ],
               ),
             ),
             const SizedBox(height: 30),
-            // DropdownButtonHideUnderline(
-            //   child: DropdownButton2<String>(
-            //     onChanged: (value) {},
-            //     isExpanded: true,
-            //     value: 'Listing',
-            //     items: [
-            //       DropdownMenuItem(
-            //         value: 'Listing',
-            //         child: Row(
-            //           children: [
-            //             DefText('Listing').normal,
-            //           ],
-            //         ),
-            //       ),
-            //       DropdownMenuItem(
-            //         value: 'Inspecting',
-            //         child: Row(
-            //           children: [
-            //             DefText('Inspecting').normal,
-            //           ],
-            //         ),
-            //       ),
-            //       DropdownMenuItem(
-            //         value: 'not_available',
-            //         child: DefText('Unit not available').normal,
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),
