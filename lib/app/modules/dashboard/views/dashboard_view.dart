@@ -31,7 +31,7 @@ class DashboardView extends GetView<DashboardController> {
         actions: [
           GestureDetector(
             onTap: () {
-              final hiveC = Get.find<HiveController>();
+              controller.listenHive();
             },
             child: const Icon(
               Icons.menu,
@@ -95,45 +95,57 @@ class DashboardView extends GetView<DashboardController> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DashboardItem(
-                    title: 'Listing',
-                    desc: 'Customer service',
-                    number: 2420,
-                    onTap: () {
-                      Get.toNamed(
-                        Routes.FINANCING,
-                      );
-                    },
+                  Obx(
+                    () => DashboardItem(
+                      title: 'Listing',
+                      desc: 'Customer service',
+                      number: controller.listingCount.value,
+                      onTap: () {
+                        Get.toNamed(
+                          Routes.FINANCING,
+                        );
+                      },
+                    ),
                   ),
                   kDivider,
-                  const DashboardItem(
-                    title: 'Inspecting',
-                    desc: 'Marketing officer',
-                    number: 1210,
+                  Obx(
+                    () => DashboardItem(
+                      title: 'Inspecting',
+                      desc: 'Marketing officer',
+                      number: controller.inspectionCount.value,
+                    ),
                   ),
                   kDivider,
-                  const DashboardItem(
-                    title: 'Visited',
-                    desc: 'Marketing officer',
-                    number: 20,
+                  Obx(
+                    () => DashboardItem(
+                      title: 'Visited',
+                      desc: 'Marketing officer',
+                      number: controller.visitedCount.value,
+                    ),
                   ),
                   kDivider,
-                  const DashboardItem(
-                    title: 'Assigning surveyor',
-                    desc: 'Marketing officer',
-                    number: 2420,
+                  Obx(
+                    () => DashboardItem(
+                      title: 'Assigning surveyor',
+                      desc: 'Marketing officer',
+                      number: controller.assigningCount.value,
+                    ),
                   ),
                   kDivider,
-                  const DashboardItem(
-                    title: 'Surveying',
-                    desc: 'Credit officer',
-                    number: 1210,
+                  Obx(
+                    () => DashboardItem(
+                      title: 'Surveying',
+                      desc: 'Credit officer',
+                      number: controller.surveyingCount.value,
+                    ),
                   ),
                   kDivider,
-                  const DashboardItem(
-                    title: 'Approval',
-                    desc: 'Marketing officer',
-                    number: 20,
+                  Obx(
+                    () => DashboardItem(
+                      title: 'Approval',
+                      desc: 'Marketing officer',
+                      number: controller.approvalCount.value,
+                    ),
                   ),
                 ],
               ),
@@ -149,28 +161,34 @@ class DashboardView extends GetView<DashboardController> {
               const SizedBox(height: 15),
               kDivider,
               //* item biru
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DashboardItem(
-                    title: 'Purchasing order',
-                    desc: 'Marketing officer',
-                    number: 2420,
-                    isOpen: false,
+                  Obx(
+                    () => DashboardItem(
+                      title: 'Purchasing order',
+                      desc: 'Marketing officer',
+                      number: controller.purchasingOrderCount.value,
+                      isOpen: false,
+                    ),
                   ),
                   kDivider,
-                  DashboardItem(
-                    title: 'Rejected',
-                    desc: 'Marketing officer',
-                    number: 1210,
-                    isOpen: false,
+                  Obx(
+                    () => DashboardItem(
+                      title: 'Rejected',
+                      desc: 'Marketing officer',
+                      number: controller.rejectedCount.value,
+                      isOpen: false,
+                    ),
                   ),
                   kDivider,
-                  DashboardItem(
-                    title: 'Unit not available',
-                    desc: 'Marketing officer',
-                    number: 20,
-                    isOpen: false,
+                  Obx(
+                    () => DashboardItem(
+                      title: 'Unit not available',
+                      desc: 'Marketing officer',
+                      number: controller.notavailCount.value,
+                      isOpen: false,
+                    ),
                   ),
                   kDivider,
                 ],

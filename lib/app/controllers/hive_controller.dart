@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:lead_management_app/app/config/constants.dart';
 import 'package:lead_management_app/app/data/dummy_data.dart';
 import 'package:lead_management_app/app/data/models/address/district.dart';
@@ -14,9 +15,10 @@ import '../utils/function_utils.dart';
 
 class HiveController extends GetxController {
   final DummyData _dummyData = DummyData();
+  final hive = Hive;
 
   Future<void> insertDummySellers() async {
-    final seller = await Hive.openBox<Seller>(kSellerBox);
+    final seller = await hive.openBox<Seller>(kSellerBox);
     if (seller.isNotEmpty) {
       //* karena ini insert dummy jadi cukup 1x saja
       //* karena data dummy di hardcode di dalam dart kemudian dimasukkan ke hive
@@ -37,7 +39,7 @@ class HiveController extends GetxController {
   }
 
   Future<void> insertDummyProvince() async {
-    final province = await Hive.openBox<Province>(kProvinceBox);
+    final province = await hive.openBox<Province>(kProvinceBox);
     if (province.isNotEmpty) {
       //* karena ini insert dummy jadi cukup 1x saja
       //* karena data dummy di hardcode di dalam dart kemudian dimasukkan ke hive
@@ -56,7 +58,7 @@ class HiveController extends GetxController {
   }
 
   Future<void> insertDummyDistrict() async {
-    final district = await Hive.openBox<District>(kDistrictBox);
+    final district = await hive.openBox<District>(kDistrictBox);
     if (district.isNotEmpty) {
       //* karena ini insert dummy jadi cukup 1x saja
       //* karena data dummy di hardcode di dalam dart kemudian dimasukkan ke hive
@@ -75,7 +77,7 @@ class HiveController extends GetxController {
   }
 
   Future<void> insertDummySubdistrict() async {
-    final subdis = await Hive.openBox<Subdistrict>(kSubdistrictBox);
+    final subdis = await hive.openBox<Subdistrict>(kSubdistrictBox);
     if (subdis.isNotEmpty) {
       //* karena ini insert dummy jadi cukup 1x saja
       //* karena data dummy di hardcode di dalam dart kemudian dimasukkan ke hive
@@ -96,7 +98,7 @@ class HiveController extends GetxController {
   Future<List<Seller>?> getAllSellers() async {
     try {
       // final res = await hiveBox.values;
-      final seller = await Hive.openBox(kSellerBox);
+      final seller = await hive.openBox(kSellerBox);
       final res = seller.values;
       if (isEmpty(res)) {
         return null;
@@ -113,7 +115,7 @@ class HiveController extends GetxController {
   }
 
   Future<List<Province>?> getAllProvinces() async {
-    final province = await Hive.openBox(kProvinceBox);
+    final province = await hive.openBox(kProvinceBox);
     try {
       final res = province.values;
       if (isEmpty(res)) {
@@ -133,7 +135,7 @@ class HiveController extends GetxController {
   }
 
   Future<List<District>?> getAllDistrict() async {
-    final district = await Hive.openBox(kDistrictBox);
+    final district = await hive.openBox(kDistrictBox);
     try {
       final res = district.values;
       if (isEmpty(res)) {
@@ -153,7 +155,7 @@ class HiveController extends GetxController {
   }
 
   Future<List<District>?> getDistrictByProvId(int provinceId) async {
-    final district = await Hive.openBox(kDistrictBox);
+    final district = await hive.openBox(kDistrictBox);
     try {
       final res = district.values;
       if (isEmpty(res)) {
@@ -178,7 +180,7 @@ class HiveController extends GetxController {
   }
 
   Future<List<Subdistrict>?> getAllSubdistrict() async {
-    final subDis = await Hive.openBox(kSubdistrictBox);
+    final subDis = await hive.openBox(kSubdistrictBox);
     try {
       final res = subDis.values;
       if (isEmpty(res)) {
@@ -198,7 +200,7 @@ class HiveController extends GetxController {
   }
 
   Future<List<Subdistrict>?> getSubistrictByDistrictId(int districtId) async {
-    final subDis = await Hive.openBox(kSubdistrictBox);
+    final subDis = await hive.openBox(kSubdistrictBox);
 
     try {
       final res = subDis.values;
@@ -224,16 +226,20 @@ class HiveController extends GetxController {
   }
 
   Future<void> createFinance(Financing financing) async {
-    final financingBox = await Hive.openBox<Financing>(kFinancingBox);
+    var financingBox = hive.box<Financing>(kFinancingBox);
+    // if (hive.isBoxOpen(kFinancingBox)) {
+    // } else {
+    //   financingBox = await hive.openBox<Financing>(kFinancingBox);
+    // }
+    // financingBox = await hive.openBox<Financing>(kFinancingBox);
     await financingBox.add(financing);
-    await financingBox.close();
+    // await financingBox.close();
   }
 
   Future<List<Financing>?> getAllFinancing() async {
-    final financingBox = await Hive.openBox<Financing>(kFinancingBox);
+    final financingBox = await hive.openBox<Financing>(kFinancingBox);
     try {
       final res = financingBox.values;
-      logKey('financingBox', res);
       if (isEmpty(res)) {
         return null;
       }
@@ -241,25 +247,37 @@ class HiveController extends GetxController {
       for (Financing e in res) {
         temp.add(e);
       }
-      financingBox.close();
+      // financingBox.close();
       return temp;
     } catch (e) {
-      financingBox.close();
+      // financingBox.close();
       return null;
     }
   }
 
   Future<Financing?> getFinanceById(String uuid) async {
-    final financingBox = await Hive.openBox<Financing>(kFinancingBox);
+    final financingBox = hive.box<Financing>(kFinancingBox);
     try {
       final index = financingBox.values.toList().indexWhere((element) => element.uuid == uuid);
       final res = financingBox.get(index);
-      financingBox.close();
+      // financingBox.close();
       return res;
     } catch (e) {
-      financingBox.close();
+      // financingBox.close();
       return null;
     }
+  }
+
+  Future<Financing?> changeFinanceStatus(String uuid, String status) async {
+    final financingBox = await hive.openBox<Financing>(kFinancingBox);
+    final index = financingBox.values.toList().indexWhere((element) => element.uuid == uuid);
+    final res = financingBox.get(index);
+    if (isEmpty(res)) {
+      return null;
+    }
+    res!.status = status;
+    financingBox.put(index, res);
+    return res;
   }
 
   @override

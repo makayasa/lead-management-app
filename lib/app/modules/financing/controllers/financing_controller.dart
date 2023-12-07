@@ -11,7 +11,6 @@ class FinancingController extends GetxController {
 
   Future<void> getFinancings() async {
     List<Financing> temp = await hiveC.getAllFinancing() ?? [];
-    logKey('getFinancings', temp);
     listFinancing.assignAll(temp);
   }
 
