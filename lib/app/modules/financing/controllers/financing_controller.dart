@@ -33,7 +33,7 @@ class FinancingController extends GetxController {
   }
 
   void initialFunction() async {
-    status.value = Get.arguments['status'] ?? FinancingStatusHelpers.LISTING;
+    status.value = Get.arguments?['status'] ?? FinancingStatusHelpers.LISTING;
     // await getFinancings();
     await getFinancingsByStatus(status: status.value);
   }

@@ -29,7 +29,4 @@ class FormCreatedController extends GetxController {
   void backToHome() {
     Get.offNamedUntil(Routes.DASHBOARD, (route) => false);
   }
-
-
-
 }
