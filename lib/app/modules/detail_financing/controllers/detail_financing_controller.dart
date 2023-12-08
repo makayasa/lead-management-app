@@ -3,7 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/data/models/financing/financing.dart';
-import 'package:lead_management_app/app/modules/financing/controllers/financing_controller.dart';
+import 'package:lead_management_app/app/routes/app_pages.dart';
 
 class DetailFinancingController extends GetxController {
   final hiveC = Get.find<HiveController>();
@@ -11,6 +11,10 @@ class DetailFinancingController extends GetxController {
   final formz = GlobalKey<FormBuilderFieldState>();
 
   final data = Financing.init().obs;
+
+  final canPop = true.obs;
+
+  final fromRegist = false.obs;
 
   Future<void> getDetailFinancing() async {
     final uuid = Get.arguments['financing_uuid'];
@@ -24,19 +28,28 @@ class DetailFinancingController extends GetxController {
   }
 
   void changeStatus(String status) async {
-    final res = await hiveC.changeFinanceStatus(
+    await hiveC.changeFinanceStatus(
       Get.arguments['financing_uuid'],
       status,
     );
   }
 
+  void popView() {
+    canPop.value = true;
+    if (fromRegist.value) {
+      Get.offNamed(Routes.FINANCING);
+    } else {
+      Get.back();
+    }
+  }
+
   void initialFunction() async {
+    fromRegist.value = Get.arguments?['from_regist'] ?? false;
     await getDetailFinancing();
   }
 
   @override
   void onReady() {
-    // TODO: implement onReady
     super.onReady();
     initialFunction();
   }
@@ -44,6 +57,5 @@ class DetailFinancingController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    Get.put(FinancingController());
   }
 }

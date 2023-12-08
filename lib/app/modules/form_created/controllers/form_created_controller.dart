@@ -13,11 +13,12 @@ class FormCreatedController extends GetxController {
     // return;
     // Get.close(3);
     // Get.toNamed(page)
-    Get.toNamed(Routes.FINANCING);
+    // Get.toNamed(Routes.FINANCING);
     Get.toNamed(
       Routes.DETAIL_FINANCING,
       arguments: {
         'financing_uuid': financingUuid,
+        'from_regist': true,
       },
     );
   }
