@@ -66,7 +66,7 @@ class DummyData {
     {"province_id": 1, "id": 8, "name": "Jakarta Barat"},
     // {"province_id": 1, "id": 9, "name": "Jakarta Selatan"},
     // {"province_id": 1, "id": 10, "name": "Jakarta Pusat"},
-    
+
     {"province_id": 2, "id": 4, "name": "Depok"},
     {"province_id": 2, "id": 3, "name": "Bogor"},
     {"province_id": 2, "id": 11, "name": "Bogor Barat"},
@@ -74,15 +74,13 @@ class DummyData {
     {"province_id": 2, "id": 13, "name": "Bogor Utara"},
     {"province_id": 2, "id": 14, "name": "Bogor Timur"},
     {"province_id": 2, "id": 15, "name": "Bogor Tenggara"},
-    
+
     {"province_id": 3, "id": 5, "name": "Tangerang"},
     {"province_id": 3, "id": 16, "name": "Tangerang Barat"},
     {"province_id": 3, "id": 17, "name": "Tangerang Timur"},
     {"province_id": 3, "id": 18, "name": "Tangerang Selatan"},
     {"province_id": 3, "id": 19, "name": "Tangerang Utara"},
     {"province_id": 3, "id": 20, "name": "Tangerang Kota"}
-
-
   ];
 
   final dataDummySubD = [
@@ -92,7 +90,6 @@ class DummyData {
     {"province_id": 2, "district_id": 3, "id": 9, "name": "Bogor Tengah"},
     {"province_id": 2, "district_id": 4, "id": 13, "name": "Depok Timur"},
     {"province_id": 3, "district_id": 5, "id": 17, "name": "Tangerang Selatan"},
-
     {"province_id": 1, "district_id": 6, "id": 21, "name": "Kebayoran Baru"},
     {"province_id": 1, "district_id": 6, "id": 22, "name": "Kebayoran Lama"},
     {"province_id": 1, "district_id": 6, "id": 23, "name": "Pesanggrahan"},
@@ -108,7 +105,6 @@ class DummyData {
     {"province_id": 1, "district_id": 1, "id": 33, "name": "Sawah Besar"},
     {"province_id": 1, "district_id": 1, "id": 34, "name": "Kemayoran"},
     {"province_id": 1, "district_id": 1, "id": 35, "name": "Cempaka Putih"},
-    
     {"province_id": 2, "district_id": 11, "id": 36, "name": "Ciawi"},
     {"province_id": 2, "district_id": 11, "id": 37, "name": "Citeureup"},
     {"province_id": 2, "district_id": 11, "id": 38, "name": "Megamendung"},
@@ -124,7 +120,6 @@ class DummyData {
     {"province_id": 2, "district_id": 15, "id": 48, "name": "Cileungsi"},
     {"province_id": 2, "district_id": 15, "id": 49, "name": "Gunung Putri"},
     {"province_id": 2, "district_id": 15, "id": 50, "name": "Gunung Sindur"},
-    
     {"province_id": 3, "district_id": 16, "id": 51, "name": "Ciledug"},
     {"province_id": 3, "district_id": 16, "id": 52, "name": "Larangan"},
     {"province_id": 3, "district_id": 16, "id": 53, "name": "Karang Tengah"},
@@ -140,5 +135,63 @@ class DummyData {
     {"province_id": 3, "district_id": 20, "id": 63, "name": "Tangerang Kota"},
     {"province_id": 3, "district_id": 20, "id": 64, "name": "Cibodas"},
     {"province_id": 3, "district_id": 20, "id": 65, "name": "Karawaci"}
+  ];
+
+  final manufactureYears = [
+    1970,
+    1971,
+    1972,
+    1973,
+    1974,
+    1975,
+    1976,
+    1977,
+    1978,
+    1979,
+    1980,
+    1981,
+    1982,
+    1983,
+    1984,
+    1985,
+    1986,
+    1987,
+    1988,
+    1989,
+    1990,
+    1991,
+    1992,
+    1993,
+    1994,
+    1995,
+    1996,
+    1997,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
   ];
 }

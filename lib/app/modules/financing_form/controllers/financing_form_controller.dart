@@ -90,6 +90,4 @@ class FinancingFormController extends GetxController {
     super.onInit();
     initialFunction();
   }
-
-
 }
