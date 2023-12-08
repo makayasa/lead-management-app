@@ -7,6 +7,7 @@ import 'package:lead_management_app/app/config/constants.dart';
 import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/modules/dashboard/components/dashboard_item.dart';
 import 'package:lead_management_app/app/routes/app_pages.dart';
+import 'package:lead_management_app/app/utils/helpers/financing_card_helpers.dart';
 
 import '../controllers/dashboard_controller.dart';
 
@@ -30,9 +31,7 @@ class DashboardView extends GetView<DashboardController> {
         ),
         actions: [
           GestureDetector(
-            onTap: () {
-              controller.listenHive();
-            },
+            onTap: () {},
             child: const Icon(
               Icons.menu,
             ),
@@ -101,8 +100,8 @@ class DashboardView extends GetView<DashboardController> {
                       desc: 'Customer service',
                       number: controller.listingCount.value,
                       onTap: () {
-                        Get.toNamed(
-                          Routes.FINANCING,
+                        controller.goToFinancing(
+                          FinancingStatusHelpers.LISTING,
                         );
                       },
                     ),
@@ -113,6 +112,11 @@ class DashboardView extends GetView<DashboardController> {
                       title: 'Inspecting',
                       desc: 'Marketing officer',
                       number: controller.inspectionCount.value,
+                      onTap: () {
+                        controller.goToFinancing(
+                          FinancingStatusHelpers.INSPECTING,
+                        );
+                      },
                     ),
                   ),
                   kDivider,
@@ -121,6 +125,11 @@ class DashboardView extends GetView<DashboardController> {
                       title: 'Visited',
                       desc: 'Marketing officer',
                       number: controller.visitedCount.value,
+                      onTap: () {
+                        controller.goToFinancing(
+                          FinancingStatusHelpers.VISITED,
+                        );
+                      },
                     ),
                   ),
                   kDivider,
@@ -129,6 +138,11 @@ class DashboardView extends GetView<DashboardController> {
                       title: 'Assigning surveyor',
                       desc: 'Marketing officer',
                       number: controller.assigningCount.value,
+                      onTap: () {
+                        controller.goToFinancing(
+                          FinancingStatusHelpers.ASSIGNING_SURVEYOR,
+                        );
+                      },
                     ),
                   ),
                   kDivider,
@@ -137,6 +151,11 @@ class DashboardView extends GetView<DashboardController> {
                       title: 'Surveying',
                       desc: 'Credit officer',
                       number: controller.surveyingCount.value,
+                      onTap: () {
+                        controller.goToFinancing(
+                          FinancingStatusHelpers.SURVEYING,
+                        );
+                      },
                     ),
                   ),
                   kDivider,
@@ -145,6 +164,11 @@ class DashboardView extends GetView<DashboardController> {
                       title: 'Approval',
                       desc: 'Marketing officer',
                       number: controller.approvalCount.value,
+                      onTap: () {
+                        controller.goToFinancing(
+                          FinancingStatusHelpers.APPROVAL,
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -169,6 +193,11 @@ class DashboardView extends GetView<DashboardController> {
                       title: 'Purchasing order',
                       desc: 'Marketing officer',
                       number: controller.purchasingOrderCount.value,
+                      onTap: () {
+                        controller.goToFinancing(
+                          FinancingStatusHelpers.PURCHASING_ORDER,
+                        );
+                      },
                       isOpen: false,
                     ),
                   ),
@@ -178,6 +207,11 @@ class DashboardView extends GetView<DashboardController> {
                       title: 'Rejected',
                       desc: 'Marketing officer',
                       number: controller.rejectedCount.value,
+                      onTap: () {
+                        controller.goToFinancing(
+                          FinancingStatusHelpers.REJECTED,
+                        );
+                      },
                       isOpen: false,
                     ),
                   ),
@@ -187,6 +221,11 @@ class DashboardView extends GetView<DashboardController> {
                       title: 'Unit not available',
                       desc: 'Marketing officer',
                       number: controller.notavailCount.value,
+                      onTap: () {
+                        controller.goToFinancing(
+                          FinancingStatusHelpers.UNIT_NOT_AVAILABLE,
+                        );
+                      },
                       isOpen: false,
                     ),
                   ),

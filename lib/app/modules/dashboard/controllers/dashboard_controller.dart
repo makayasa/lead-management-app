@@ -30,6 +30,15 @@ class DashboardController extends GetxController with GetSingleTickerProviderSta
     });
   }
 
+  void goToFinancing(String status) {
+    Get.toNamed(
+      Routes.FINANCING,
+      arguments: {
+        'status': status,
+      },
+    );
+  }
+
   @override
   void onInit() {
     super.onInit();

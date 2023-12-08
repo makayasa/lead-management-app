@@ -255,6 +255,25 @@ class HiveController extends GetxController {
     }
   }
 
+  Future<List<Financing>?> getAllFinancingByStatus(String status) async {
+    final financingBox = await hive.openBox<Financing>(kFinancingBox);
+    try {
+      final res = financingBox.values;
+      if (isEmpty(res)) {
+        return null;
+      }
+      List<Financing> temp = [];
+      for (var e in financingBox.values) {
+        if (e.status == status) {
+          temp.add(e);
+        }
+      }
+      return temp;
+    } catch (e) {
+      return null;
+    }
+  }
+
   Future<Financing?> getFinanceById(String uuid) async {
     final financingBox = hive.box<Financing>(kFinancingBox);
     try {

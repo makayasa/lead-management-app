@@ -54,74 +54,128 @@ class FinancingView extends GetView<FinancingController> {
                   physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   children: [
-                    FinancingTabItem(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
+                    Obx(
+                      () => FinancingTabItem(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                        ),
+                        // text: 'Listing',
+                        isSelected: controller.status.value == FinancingStatusHelpers.LISTING,
+                        text: FinancingStatusHelpers.LISTING,
+                        onTap: () {
+                          controller.status.value = FinancingStatusHelpers.LISTING;
+                          controller.getFinancingsByStatus(status: FinancingStatusHelpers.LISTING);
+                        },
                       ),
-                      // text: 'Listing',
-                      text: FinancingStatusHelpers.LISTING,
-                      onTap: () {},
                     ),
                     const VerticalDivider(
-                      width: 5,
+                      width: 1,
                     ),
-                    FinancingTabItem(
-                      text: FinancingStatusHelpers.INSPECTING,
-                      onTap: () {},
-                    ),
-                    const VerticalDivider(
-                      width: 5,
-                    ),
-                    FinancingTabItem(
-                      text: FinancingStatusHelpers.VISITED,
-                      onTap: () {},
-                    ),
-                    const VerticalDivider(
-                      width: 5,
-                    ),
-                    FinancingTabItem(
-                      text: FinancingStatusHelpers.ASSIGNING_SURVEYOR,
-                      onTap: () {},
-                    ),
-                    const VerticalDivider(
-                      width: 5,
-                    ),
-                    FinancingTabItem(
-                      text: FinancingStatusHelpers.SURVEYING,
-                      onTap: () {},
-                    ),
-                    const VerticalDivider(
-                      width: 5,
-                    ),
-                    FinancingTabItem(
-                      text: FinancingStatusHelpers.APPROVAL,
-                      onTap: () {},
-                    ),
-                    const VerticalDivider(
-                      width: 5,
-                    ),
-                    FinancingTabItem(
-                      text: FinancingStatusHelpers.PURCHASING_ORDER,
-                      onTap: () {},
-                    ),
-                    const VerticalDivider(
-                      width: 5,
-                    ),
-                    FinancingTabItem(
-                      text: FinancingStatusHelpers.REJECTED,
-                      onTap: () {},
-                    ),
-                    const VerticalDivider(
-                      width: 5,
-                    ),
-                    FinancingTabItem(
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
+                    Obx(
+                      () => FinancingTabItem(
+                        text: FinancingStatusHelpers.INSPECTING,
+                        isSelected: controller.status.value == FinancingStatusHelpers.INSPECTING,
+                        onTap: () {
+                          controller.status.value = FinancingStatusHelpers.INSPECTING;
+                          controller.getFinancingsByStatus(status: FinancingStatusHelpers.INSPECTING);
+                        },
                       ),
-                      text: FinancingStatusHelpers.UNIT_NOT_AVAILABLE,
-                      onTap: () {},
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    Obx(
+                      () => FinancingTabItem(
+                        text: FinancingStatusHelpers.VISITED,
+                        isSelected: controller.status.value == FinancingStatusHelpers.VISITED,
+                        onTap: () {
+                          controller.status.value = FinancingStatusHelpers.VISITED;
+                          controller.getFinancingsByStatus(status: FinancingStatusHelpers.VISITED);
+                        },
+                      ),
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    Obx(
+                      () => FinancingTabItem(
+                        text: FinancingStatusHelpers.ASSIGNING_SURVEYOR,
+                        isSelected: controller.status.value == FinancingStatusHelpers.ASSIGNING_SURVEYOR,
+                        onTap: () {
+                          controller.status.value = FinancingStatusHelpers.ASSIGNING_SURVEYOR;
+                          controller.getFinancingsByStatus(status: FinancingStatusHelpers.ASSIGNING_SURVEYOR);
+                        },
+                      ),
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    Obx(
+                      () => FinancingTabItem(
+                        text: FinancingStatusHelpers.SURVEYING,
+                        isSelected: controller.status.value == FinancingStatusHelpers.SURVEYING,
+                        onTap: () {
+                          controller.status.value = FinancingStatusHelpers.SURVEYING;
+                          controller.getFinancingsByStatus(status: FinancingStatusHelpers.SURVEYING);
+                        },
+                      ),
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    Obx(
+                      () => FinancingTabItem(
+                        text: FinancingStatusHelpers.APPROVAL,
+                        isSelected: controller.status.value == FinancingStatusHelpers.APPROVAL,
+                        onTap: () {
+                          controller.status.value = FinancingStatusHelpers.APPROVAL;
+                          controller.getFinancingsByStatus(status: FinancingStatusHelpers.APPROVAL);
+                        },
+                      ),
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    Obx(
+                      () => FinancingTabItem(
+                        text: FinancingStatusHelpers.PURCHASING_ORDER,
+                        isSelected: controller.status.value == FinancingStatusHelpers.PURCHASING_ORDER,
+                        onTap: () {
+                          controller.status.value = FinancingStatusHelpers.PURCHASING_ORDER;
+                          controller.getFinancingsByStatus(status: FinancingStatusHelpers.PURCHASING_ORDER);
+                        },
+                      ),
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    Obx(
+                      () => FinancingTabItem(
+                        text: FinancingStatusHelpers.REJECTED,
+                        isSelected: controller.status.value == FinancingStatusHelpers.REJECTED,
+                        onTap: () {
+                          controller.status.value = FinancingStatusHelpers.REJECTED;
+                          controller.getFinancingsByStatus(status: FinancingStatusHelpers.REJECTED);
+                        },
+                      ),
+                    ),
+                    const VerticalDivider(
+                      width: 5,
+                    ),
+                    Obx(
+                      () => FinancingTabItem(
+                        borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                        text: FinancingStatusHelpers.UNIT_NOT_AVAILABLE,
+                        isSelected: controller.status.value == FinancingStatusHelpers.UNIT_NOT_AVAILABLE,
+                        onTap: () {
+                          controller.status.value = FinancingStatusHelpers.UNIT_NOT_AVAILABLE;
+                          controller.getFinancingsByStatus(status: FinancingStatusHelpers.UNIT_NOT_AVAILABLE);
+                        },
+                      ),
                     ),
                   ],
                 ),
