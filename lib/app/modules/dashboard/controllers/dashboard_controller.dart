@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/routes/app_pages.dart';
-import 'package:lead_management_app/app/utils/function_utils.dart';
 import 'package:lead_management_app/app/utils/helpers/financing_card_helpers.dart';
 
 import '../../../config/constants.dart';

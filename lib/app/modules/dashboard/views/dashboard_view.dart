@@ -4,9 +4,7 @@ import 'package:get/get.dart';
 import 'package:lead_management_app/app/components/default_button.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
-import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/modules/dashboard/components/dashboard_item.dart';
-import 'package:lead_management_app/app/routes/app_pages.dart';
 import 'package:lead_management_app/app/utils/helpers/financing_card_helpers.dart';
 
 import '../controllers/dashboard_controller.dart';

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:lead_management_app/app/components/default_button.dart';
 import 'package:lead_management_app/app/components/default_text.dart';
 import 'package:lead_management_app/app/config/constants.dart';
-import 'package:lead_management_app/app/routes/app_pages.dart';
 
 import '../controllers/form_created_controller.dart';
 

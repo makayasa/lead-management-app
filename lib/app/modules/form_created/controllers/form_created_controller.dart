@@ -30,18 +30,6 @@ class FormCreatedController extends GetxController {
     Get.offNamedUntil(Routes.DASHBOARD, (route) => false);
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 }

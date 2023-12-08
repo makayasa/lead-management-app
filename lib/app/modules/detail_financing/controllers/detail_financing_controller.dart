@@ -3,7 +3,6 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:lead_management_app/app/controllers/hive_controller.dart';
 import 'package:lead_management_app/app/data/models/financing/financing.dart';
-import 'package:lead_management_app/app/utils/function_utils.dart';
 
 class DetailFinancingController extends GetxController {
   final hiveC = Get.find<HiveController>();
@@ -34,10 +33,6 @@ class DetailFinancingController extends GetxController {
     await getDetailFinancing();
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   @override
   void onReady() {

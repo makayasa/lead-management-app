@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lead_management_app/app/config/constants.dart';
 
 import '../../../components/default_text.dart';
